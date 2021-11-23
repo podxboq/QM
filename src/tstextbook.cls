@@ -46,9 +46,6 @@
 \RequirePackage{graphicx}
 \graphicspath{{images/}}
 \RequirePackage{tikz}
-\RequirePackage[pages=some]{background}
-\backgroundsetup{scale=1,color=black,opacity=1.0,angle=0,
-contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
 
 % Header and footer styling
 %--------------------------------------------------------------------------
@@ -77,8 +74,6 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
   {
     \begin{tikzpicture}[remember picture,overlay]
       % Background image
-      \node[anchor=north west,inner sep=0pt] at (0,0)
-           {\includegraphics[width=\paperwidth]{background}};
       % Chapter heading
       \draw[anchor=west, inner sep=0pt] (0cm,-1.5cm) node
            [black,
