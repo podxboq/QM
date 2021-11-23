@@ -1,0 +1,33 @@
+\section{Definiciones y notación}
+\begin{definicion}
+    Sea $I$ un intervalo abierto de $\R$. Llamamos \define{Espacio cuántico de $I$} a
+    \begin{equation}
+        EC_I=\{f:\R\rightarrow\C\mid\int_I\nor{f(x)}^2 dx \in \R\}
+    \end{equation}
+\end{definicion}
+
+El espacio cuántico es un espacio vectorial de dimensión infinita y en el cual tenemos definido el producto interno
+\begin{equation}
+    \forall f,g\in EC_I \ \langle f,g \rangle=\int_I f^* g\ dx
+\end{equation}
+
+\begin{definicion}
+    Diremos que un vector está \define{normalizado} si su norma es 1.
+\end{definicion}
+
+Las funciones de onda (vectores) reciben el nombre de \textbf{ket} y se denota por $\ket{f}$, los operadores (funciones lineales) reciben el nombre de \textbf{bra} y se denota por $\bra{H}$. Llamamos \define{braket} y se denota por $\braket{f}{g}$ al producto interno y por $\operatoravg{f}{H}{g}$ al producto interno de $f$ por $H(g)$.
+
+\begin{definicion}
+    Sea $I$ un intervalo abierto de $\R$ y $f$ un elemento de $EC_I$ y $H$ un operador sobre $EC_I$. Llamamos \define{Valor esperado de $f$ al operarlo $H$} a
+    \begin{equation}
+        \avg{H(f)}=\operatoravg{f}{H}{f}
+    \end{equation}
+\end{definicion}
+
+
+\begin{definicion}
+    Sea $I$ un intervalo abierto de $\R$ y $H$ un operador sobre $EC_I$. Diremos que $H$ es \define{hermitiano} si
+    \begin{equation}
+        \braket{f}{H(f)}=\braket{H(f)}{f}\forall f\in EC_I
+    \end{equation}
+\end{definicion}

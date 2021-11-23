@@ -1,0 +1,25 @@
+
+\section{Matrices}
+
+Mientras no se indique lo contrario, las matrices son cuadradas, de dimensión $n$ y sobre el cuerpo de los números complejos.
+
+Si $\mathbf{A}$ es una matriz, llamamos a sus elementos $\mathbf{A}_i^j$. A la $i$-ésima fila de $\mathbf{A}$ la denotamos por $\mathbf{A}_i$ y a la $i$-ésima columna de $\mathbf{A}$ la denotamos por $\mathbf{A}^i$.
+
+Dada una matriz $\mathbf{A}=(\mathbf{A}_i^j)$ podemos definir los siguientes conceptos:
+\begin{tabular}{l|l|l}
+	Mombre & Notación & Definición \\
+	\hline
+	Matriz adjunta & $\mathbf{A}^T$ & ${\mathbf{A}^T}_i^j := \mathbf{A}_j^i$. \\
+	Diagonal & $\text{diag}(\mathbf{A})$ & $(\mathbf{A}_1^1, \dots, \mathbf{A}_n^n)$. \\
+	& $\mathbf{A}|_i^j$ & $\mathbf{A}$ quitando la $i$-ésima fila y la $j$-ésima columna. \\
+	menor de $\mathbf{A}_i^j$ & & det$(\mathbf{A}|_i^j)$. \\
+	cofactor de $\mathbf{A}_i^j$ & $\mathbf{\tilde{A}}_i^j$ & $(-1)^{i+j}$ det$(\mathbf{A}|_i^j)$. \\
+	adjunto & adj$(\mathbf{A})$ & $(\text{adj}(\mathbf{A}))_i^j := \mathbf{\tilde{A}}_i^j$. \\
+	$\mathbf{A}$ es ortogonal & & Si $\mathbf{A}\mathbf{A}^T=\mathbf{A}^T\mathbf{A}=\mathbf{I}$.
+\end{tabular}
+
+\paragraph{Resultados}
+\begin{itemize}
+	\item Sea $\mathbf{A}$ una matriz, $\mathbf{A}\text{adj}(\mathbf{A}) = \text{adj}(\mathbf{A})\mathbf{A}=\text{det}(\mathbf{A})\mathbf{I}$.
+	\item Sea $\mathbf{A}$ una matriz ortogonal, entonces det$(\mathbf{A})=\pm1$.
+\end{itemize}

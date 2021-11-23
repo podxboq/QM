@@ -1,15 +1,44 @@
-%! Author = podxboq
-%! Date = 23/11/21
+\documentclass{tstextbook}
 
-% Preamble
-\documentclass[11pt]{article}
+\usepackage{glossaries}
+\usepackage{tikz-cd}
 
-% Packages
-\usepackage{amsmath}
-
-% Document
+\input{personalizacion.tex}
+\makeglossaries
+\overfullrule=1mm
 \begin{document}
 
+    \tsbook{Apuntes en mecánica cuántica}
+    {Francisco Costa}
+    {podxboq}
+    {2021}
+    {xxxxx}{xxx--xx--xxxx--xx--x}{0.1}
+    {Autor independiente}
+    {Murcia}
 
+    \printglossaries
+    \overfullrule=5mm
+    \chapter{La chapa}\label{ch:la-chapa}
+    \input{intro}
+
+    \chapter{1}\label{ch:1}
+    \input{chapter01_01.tex}
+    \chapter{2}\label{ch:2}
+    \input{chapter01_02.tex}
+    \chapter{3}\label{ch:3}
+    \input{chapter01_03.tex}
+    \chapter{4}\label{ch:4}
+    \input{chapter03_01.tex}
+    \chapter{5}\label{ch:5}
+    \input{chapter_hilbert.tex}
+    \chapter{6}\label{ch:6}
+    \input{chapter_operadores.tex}
+
+    \chapter{Formularios}\label{ch:formularios}
+    \input{formularios.tex}
+    \addcontentsline{toc}{chapter}{\textcolor{tssteelblue}{Literature}}
+
+    \printbibliography{}
+    \printindex
 
 \end{document}

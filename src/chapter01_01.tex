@@ -1,0 +1,246 @@
+\section{El camino a los espacios de Hilbert}
+Mientras no se indique lo contrario, siempre un espacio vectorial será un $\C$-espacio vectorial.
+
+\subsection{Espacios métricos}
+\begin{definicion}
+  \label{distancia}
+  Sea $E$ un espacio vectorial, diremos que la aplicación $d:E \rightarrow \R$ es una \define{métrica} sobre $E$ si cumple:
+  \begin{itemize}
+    \item $\forall x,y \in E,\ d(x,y)=d(y,x)$.
+    \item $\forall x,y,z \in E,\ d(x,z)\leq d(x, y)+d(y, z)$.
+    \item $\forall x, y \in E,\ d(x,y)\geq 0 \text{ siendo } d(x,y)=0\Leftrightarrow x = y$.
+  \end{itemize}
+\end{definicion}
+
+\begin{definicion}
+  \label{espacio_metrico}
+  Sea $E$ un espacio vectorial y $d$ una métrica sobre $E$, llamamos al par $(E, d)$ un \define{espacio métrico}.
+\end{definicion}
+
+\subsection{Espacios normados}
+\begin{definicion}
+  \label{norma}
+  Sea $E$ un espacio vectorial, diremos que la aplicación $\nor{}:E \rightarrow \R$ es una \define{norma} sobre E si cumple:
+  \begin{itemize}
+    \item $\forall x \in E,\ \forall\alpha\in\C,\ \nor{\alpha x}=\abs{\alpha}\nor{x}$.
+    \item $\forall x,y \in E,\ \nor{x+y}\leq\nor{x}+\nor{y}$.
+    \item $\forall x \in E,\ \nor{x}\geq 0 \text{ siendo } \nor{x}=0\Leftrightarrow x = 0$.
+  \end{itemize}
+\end{definicion}
+
+\begin{definicion}
+  \label{espacio_normado}
+  Sea $E$ un espacio vectorial y $\nor{}$ una norma sobre $E$, llamamos al par $(E, \nor{})$ un \define{espacio normado}.
+\end{definicion}
+
+Todo espacio normado $(E, \nor{})$, es un espacio métrico, definiendo la métrica para cada par de elementos, $x, y\in E$ por $d(x, y)=\nor{x-y}$. Esta métrica se denomina \define{métrica definida por la norma}.
+
+\definicion{Sean $(E, \nor{})$ y $(E', \nor{}')$ dos espacios normados. Sea f un homomorfismo entre E y E'. Diremos que \define{f es acotado} si existe
+$c\in\R^+$ tal que $\nor{f(x)}' \leq c\nor{x}\ \forall x\in E$. Diremos que c es una \define{cota de f}.}
+
+\definicion{Sea f un homomorfismo acotado sobre dos espacios normados. Llamamos \define{norma de f} al ínfimo de las
+cotas de f.}
+
+\resultado{
+Un homomorfismo sobre espacios normados es continuo si y sólo si es acotado.
+}
+
+\resultado{
+Un homomorfismo sobre espacios normados es continuo si y sólo si es continuo en un elemento.
+}
+
+\ejercicio{
+Sean $E$ y $F$ dos espacios normados y $C$ el espacio vectorial de los homomorfismo acotados de $E$ en $F$. Demostrar que $\forall\ T\in C$ definiendo $\nor{T}=\text{sup}_{x\in E-\{0\}}\frac{\nor{T(x)}}{\nor{x}}$ es una norma en $C$.
+}
+
+\subsection{Espacios Euclídeos}
+\begin{definicion}
+  \label{producto_escalar}
+  Sea $E$ un espacio vectorial, diremos que la aplicación $\braket{}{}:E\times E \rightarrow \C$ es un \define{producto escalar} sobre E si cumple:
+  \begin{itemize}
+    \item $\forall x,y \in E,\ \braket{x}{y}=\overline{\braket{y}{x}}$.
+    \item $\forall x,y,z \in E, \braket{x}{y+z}=\braket{x}{y}+\braket{x}{z}$.
+    \item $\forall x,y \in E,\ \forall\alpha\in\C, \braket{x}{\alpha y}=\overline{\alpha}\braket{x}{y}$.
+    \item $\forall x \in E, \braket{x}{x}\geq 0 \text{ siendo } \braket{x}{x}=0\Leftrightarrow x = 0$.
+  \end{itemize}
+\end{definicion}
+
+\begin{definicion}
+  \label{espacio_euclideo}
+  Sea $E$ un espacio vectorial y $\braket{}{}$ un producto escalar sobre $E$, llamamos al par $(E, \braket{}{})$ un \define{espacio euclídeo}.
+\end{definicion}
+
+Todo espacio euclídeo $(E, \braket{}{})$, es un espacio normado, definiendo la norma para cada $x\in E$, por $\nor{x}=\sqrt{\braket{x}{x}}$. Esta norma se denomina \define{norma definida por el producto escalar}.
+
+En realidad, no es necesario indicar cual es la métrica, la norma o el producto escalar usado, pues siempre sabemos cada elemento a que espacio pertenece, así pues, sólo diremos que $E$ es un espacio métrico, euclídeo o normado y siempre denotaremos por $d$ la métrica, por $\nor{}$ la norma y por $\braket{}{}$ el producto escalar.
+
+\begin{resultado}[Riesz]
+  Sean $E$ y $F$ dos espacios euclídeos y $C$ el espacio normado de los homomorfismos acotados entre $E$ y $F$. Para cada $f\in C$, existe $z_f\in E$ tal que para todo $x\in\ E$ se tiene que $f(x)=\braket{x}{z_f}$ y además $\nor{z_f}=\nor{f}$.
+\end{resultado}
+
+\begin{definicion}
+  Sea $(E, \braket{}{})$ un espacio euclídeo, con $X=\{x_n\}_{n\in\N}$ un conjunto de vectores linealmente independintes. Si $x\in E$, llamamos \define{serie de Fourier de $x$ con respecto a $X$} a
+  \begin{equation}
+    \sum_{n\in\N}\braket{x}{x_n}x_n
+  \end{equation}
+\end{definicion}
+
+\begin{resultado}
+  \label{norma_suma_general}
+  Sea E un espacio euclídeo, dados $f,g\in E$ y $a,b\in\C$, se tiene la siguiente igualdad:
+  \begin{equation}
+    \nor{af+bg}^2=\abs{a}^2\nor{f}^2+\abs{b}^2\nor{g}^2+2\Re(a\overline{b}\braket{f}{g})
+  \end{equation}
+\end{resultado}
+\begin{proof}
+  \nor{af+bg}^2=\braket{af+bg}{af+bg}=\braket{af}{af}+\braket{af}{bg}+\braket{bg}{af}+\braket{bg}{bg}=\abs{a}^2\nor{f}^2+a\overline{b}\braket{f}{g}+b\overline{a}\braket{g}{f}+\abs{b}^2\nor{g}^2=\abs{a}^2\nor{f}^2+\abs{b}^2\nor{g}^2+a\overline{b}\braket{f}{g}+\overline{a\overline{b}}\overline{\braket{f}{g}}=\abs{a}^2\nor{f}^2+\abs{b}^2\nor{g}^2+a\overline{b}\braket{f}{g}+\overline{a\overline{b}\braket{f}{g}}=\abs{a}^2\nor{f}^2+\abs{b}^2\nor{g}^2+2\Re(a\overline{b}\braket{f}{g}).
+\end{proof}
+\begin{resultado}
+  \label{producto_escalar_real}
+  Sea E un espacio euclídeo, dados $f,g\in E$ se tiene la siguiente desigualdad:
+  \begin{equation}
+    \Re(\braket{f}{g})\leq\frac{1}{2}(\nor{f}^2+\nor{g}^2)
+  \end{equation}
+\end{resultado}
+\begin{proof}
+  Usando el resultado \ref{norma_suma_general} para $a=1$ y $b=-1$ tenemos que $\abs{a}=1$, $\abs{b}=1$ y $a\overline{b}=-1$ y la igualdad queda
+  \begin{equation*}
+    \nor{f-g}^2=\nor{f}^2+\nor{g}^2+2\Re(-\braket{f}{g})
+  \end{equation*}
+  Como la norma de cualquier vector es mayor o igual que cero, tendremos que
+  $0\leq\nor{f}^2+\nor{g}^2+2\Re(-\braket{f}{g})=\nor{f}^2+\nor{g}^2-2\Re(\braket{f}{g})\Rightarrow 2\Re(\braket{f}{g})\leq\nor{f}^2+\nor{g}^2\Rightarrow \Re(\braket{f}{g})\leq\frac{1}{2}(\nor{f}^2+\nor{g}^2)$.
+\end{proof}
+
+\begin{resultado}
+  \label{exponencial_producto_interno_real}
+  Sea E un espacio euclídeo, dados $f,g\in E$ se tiene la siguiente igualdad:
+  \begin{equation}
+    max\{\Re(e^{i\alpha}\braket{f}{g})\text{ tq }\alpha\in\C\}=\abs{\braket{f}{g}}
+  \end{equation}
+\end{resultado}
+\begin{proof}
+  Tenemos que $\braket{f}{g}=a+ib$ para algún $a,b\in\R$. Así que $e^{i\alpha}\braket{f}{g}=(\cos(\alpha)+i \sin(\alpha))(a+ib)=(a \cos(\alpha)-b \sin(\alpha)) + i(b \cos(\alpha)+a\sin(\alpha)).$
+
+  Por tanto, la parte real es $\Re(e^{i\alpha}\braket{f}{g})=a \cos(\alpha)-b \sin(\alpha)$ para todo $\alpha\in\C$, por lo tanto la parte real está incluido en la circunferencia de radio $\sqrt{a^2+b^2}$ y el máximo de estos valores se alcanza precisamente en la frontera del círculo, es decir $\sqrt{a^2+b^2}$ que es $\abs{\braket{f}{g}}$.
+\end{proof}
+\begin{resultado}
+  \label{norma_producto_escalar_producto_norma}
+  Sea E un espacio euclídeo, dados $f,g\in E$ se tiene la siguiente desigualdad:
+  \begin{equation}
+    \abs{\braket{f}{g}}\leq\nor{f}\nor{g}
+  \end{equation}
+\end{resultado}
+
+\begin{proof}
+  Usando el resultado \ref{norma_suma_general} y fijando $\alpha\in\C$, para $a=\frac{\nor{g}}{\nor{f}}e^{i\alpha}$ y $b=-\frac{\nor{f}}{\nor{g}}$ tenemos que $\abs{a}=\frac{\nor{g}}{\nor{f}}$, $\abs{b}=\frac{\nor{f}}{\nor{g}}$ y $a\overline{b}=-e^{i\alpha}$ y la igualdad queda
+  \begin{multline*}
+    \nor{\frac{\nor{g}}{\nor{f}}e^{i\alpha}f-\frac{\nor{f}}{\nor{g}}g}^2=\frac{\nor{g}}{\nor{f}}\nor{f}^2+\frac{\nor{f}}{\nor{g}}\nor{g}^2+2\Re(-e^{i\alpha}\braket{f}{g})=\\
+    =\nor{g}\nor{f}+\nor{f}\nor{g}-2\Re(e^{i\alpha}\braket{f}{g})=2(\nor{f}\nor{g}-\Re(e^{i\alpha}\braket{f}{g}))
+  \end{multline*}
+  Como la norma de cualquier vector es mayor o igual que cero, tenemos que
+  $0\leq\nor{f}\nor{g}-\Re(e^{i\alpha}\braket{f}{g})\Rightarrow \Re(e^{i\alpha}\braket{f}{g})\leq\nor{f}\nor{g}$.
+
+  Como la desigualdad anterior es válida para todo $\alpha\in\C$ y usando el resultado \ref{exponencial_producto_interno_real} tendremos que $ \abs{\braket{f}{g}}\leq\nor{f}\nor{g}$.
+\end{proof}
+
+\begin{resultado}
+  Sea E un espacio euclídeo, dados $f,g\in E$ se tiene que:
+  \begin{equation}
+    \label{norma_producto_escalar_igual_producto_norma}
+    \abs{\braket{f}{g}}=\nor{f}\nor{g}\Leftrightarrow \exists\alpha\in\C\text{ tq }f=\alpha g
+  \end{equation}
+\end{resultado}
+
+\begin{proof}
+  Primero vamos a considerar el caso $f=\alpha g$:
+  \begin{equation*}
+    \abs{\braket{f}{g}}=\abs{\braket{\alpha g}{g}}=\abs{\alpha}\nor{g}^2=\abs{\alpha}\nor{g}\nor{g}=\nor{f}\nor{g}
+  \end{equation*}
+  Para el caso contrario, como se comprobó en el resultado \ref{norma_producto_escalar_producto_norma}, $\braket{f}{g}$ es el valor máximo de $\Re(e^{i\alpha}\braket{f}{g})$. Como dichos valores forman un conjunto cerrado, el máximo se alcanza, es decir, existe $\beta\in\C$ tal que $\Re(e^{i\beta}\braket{f}{g})=\abs{\braket{f}{g}}$ y utilizando el resultado \ref{norma_suma_general} para $a=\frac{\nor{g}}{\nor{f}}e^{i\beta}$ y $b=-\frac{\nor{f}}{\nor{g}}$ tenemos que:
+  \begin{multline*}
+    \nor{\frac{\nor{g}}{\nor{f}}e^{i\beta}f-\frac{\nor{f}}{\nor{g}}g}=2(\nor{f}\nor{g}-\Re(e^{i\beta}\braket{f}{g}))=2(\nor{f}\nor{g}-\braket{f}{g})=\\
+    =2(\nor{f}\nor{g}-\nor{f}\nor{g})=0
+  \end{multline*}
+  Si la norma es igual que cero, tenemos que
+  $\frac{\nor{g}}{\nor{f}}e^{i\beta}f=\frac{\nor{f}}{\nor{g}}g\Rightarrow f=e^{-i\beta}\frac{\nor{f}^2}{\nor{g}^2}g$. Y por tanto para $\alpha=e^{-i\beta}\frac{\nor{f}^2}{\nor{g}^2}$ tenemos la igualdad buscada.
+\end{proof}
+
+\subsection{Espacios de Banach}
+\begin{definicion}
+  \label{espacio_banach}
+  Un espacio normado es un \define{espacio de Banach} si es completo para la métrica definida por la norma.
+\end{definicion}
+
+\subsection{Espacios de Hilbert}
+\begin{definicion}
+  \label{espacio_hilbert}
+  Un espacio euclídeo es un \define{espacio de Hilbert} si es completo para la norma inducida.
+\end{definicion}
+
+\resultado[Ortogonalización de Gram-Schmidt]{
+Todo subespacio vectorial de un espacio de Hilbert admite una base ortonormal.
+}
+\resultado{
+Sean $E$ y $F$ dos espacios de Hilbert. Para todo homomorfismo $f$ de $E$ a $F$ existe un homomorfismo $f^+$ de $F$ a $E$ tal que $\braket{f(x)}{y}=\braket{x}{f^+(y)}$.
+}
+
+\begin{definicion}
+  \label{homomorfismo_adjunto}
+  Sean $E$ y $F$ dos espacios de Hilbert y $f$ un homomorfismo de $E$ a $F$. Llamamos \define{homomorfismo adjunto de f} al homomorfismo $f^+$ de $F$ a $E$ tal que $\braket{f(x)}{y}=\braket{x}{f^+(y)}$.
+\end{definicion}
+
+\resultado{
+Sean $f$ y $g$ homomorfismos entre espacios de Hilbert. Se cumple:
+\begin{itemize}
+  \item $(f^+)^+=f$.
+  \item $(af)^+=\overline{a}f^+$ para todo $a\in\C$.
+  \item $(fg)^+=g^+f^+$.
+\end{itemize}
+}
+
+\resultado{
+Sean $f$ y $g$ dos homomorfismos entre espacios de Hilbert. El producto $fg$ es hermítico si y sólo si $f$ y $g$ conmutan.
+}
+
+\definicion{
+Sean $f$ y $g$ dos homomorfismos entre espacios de Hilbert. Llamamos \define{conmutador de f}
+}
+
+\resultado{
+Sean $f$ y $g$ dos homomorfismos entre espacios de Hilbert.
+}
+
+\begin{definicion}
+  \label{automorfismo_autoadjunto}\label{automorfismo_hermitico}
+  Sean $E$ un espacio de Hilbert y $f$ un automorfismo de $E$. Diremos que \define{f es autoadjunto} o \define{hermítico} si $f = f^+$.
+\end{definicion}
+
+\begin{definicion}
+  Sean $E$ y $F$ dos espacios de Hilbert y $f$ un homomorfismo de $E$ a $F$. Diremos que \define{$f$ es compacto} si para toda sucesión $(x_n)_{n\in\N}$ de $E$, la sucesión $(f(x_n))_{n\in\N}$ tiene una subsucesión convergente.
+\end{definicion}
+
+\resultado{
+Todo automorfismo compacto y hermítico sobre un espacio de Hilbert tiene su norma o el opuesto de su norma como valor própio.
+}
+
+\resultado[Teorema espectral]{
+Sea $E$ un espacio de Hilbert y $f$ un automorfismo hermítico y compacto. El conjunto de todos los autovectores ortonormales de $f$ es numerable.
+}
+
+\subsection{Espacios de Hilbert separable}
+\begin{definicion}
+  \label{espacio_hilbert_separable}
+  Un espacio de Hilbert es un \define{espacio de Hilbert separable} si tiene un subconjunto denso numerable.
+\end{definicion}
+
+\resultado{
+Sea $E$ un espacio de Hilbert separable y $f$ un automorfismo de $E$. Si $f$ tiene un número infinito de valores propios distintos, entonces es una cantidad numerable y ordenados de mayor a menor definen una sucesión convergente a 0.
+}
+
+\resultado{
+Sea $E$ un espacio de Hilbert separable y $f$ un automorfismo hermítico y compacto. El conjunto $\{e_n\}_{n\in\N}$ de todos los vectores propios ortonormales de $f$ es una base de $E$. Ademas se tiene que para todo $x\in\ E$, $f(x)=\sum_{n\in\N}\lambda_n\braket{x}{e_n}e_n$, donde $\lambda_n$ es el valor propio asociado al vector propio $e_n$.
+}
+
+\resultado{
+En un espacio de Hilbert separable, todos los conjuntos ortogonales son numerables.
+}
