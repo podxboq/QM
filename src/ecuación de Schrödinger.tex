@@ -1,37 +1,47 @@
-\section{Función de onda}
-\begin{definicion}
-La \define{ecuación de Schrödinger}, describe la evolución temporal de una partícula subatómica masiva de naturaleza ondulatoria y no relativista.
-\begin{equation}\label{ecuacion_schrodinger}
-	\frac{\partial\Psi(x,t)}{\partial t}=\frac{i\hbar}{2m}\frac{\partial^2\Psi(x,t)}{\partial x^2}-\frac{i}{\hbar}V(x,t)\Psi(x,t)
-\end{equation}
-\end{definicion}
-Donde $V(x,t)$ es la energía potencial del sistema, $\hbar = h/(2\pi)=1,054571818\times 10^{-34}$ Js, es la \define{constante de Dirac}\label{constante_dirac} y $h = 6,626070150 \times 10^{-34}$ Js la \define{constante de Planck}\label{constante_planck}.
+\chapter{Ecuación de Schrödinger}
 
-Otra forma que usaremos con frecuencia de presentar la ecuación de Schrödinger es multiplicando po $i\hbar$ la ecuación
-\begin{equation}\label{ecuacion_schrodinger_alternativa}
-i\hbar\frac{\partial\Psi(x,t)}{\partial t}=\frac{-\hbar^2}{2m}\frac{\partial^2\Psi(x,t)}{\partial x^2}+V(x,t)\Psi(x,t)
-\end{equation}
-\begin{definicion}
-Llamamos \define{función de onda}\label{funcion_onda} a las soluciones de la ecuación de Schrödinger. Diremos que $\Psi$ es una función de onda del potencial $V(x,t)$.
-\end{definicion}
+
+\section{Función de onda}
+La \define{ecuación de Schrödinger}, describe la evolución temporal de una partícula subatómica masiva de naturaleza ondulatoria y no relativista.
+\begin{postulate}[Ecuación de Schrödinger]
+    \begin{equation}
+    \label{eq:ecuacion_schrodinger}
+    \frac{\partial\Psi(\vec{r},t)}{\partial t}=\frac{i\hbar}{2m}\nabla\Psi(\vec{r},t)-\frac{i}{\hbar}V(\vec{r},t)\Psi(\vec{r},t)
+    \end{equation}
+\end{postulate}
+
+Donde $V(x,t)$ es la energía potencial del sistema.
+
+Llamamos \define{función de onda} a las soluciones de la ecuación de Schrödinger. Diremos que $\Psi$ es una función de onda del potencial $V(x,t)$.
+
+\begin{postulate}[Ecuación de Schrödinger en una dimensión]
+    \begin{equation}
+        \label{eq:ecuacion_schrodinger_una_dimension}
+        \frac{\partial\Psi(x,t)}{\partial t}=\frac{i\hbar}{2m}\frac{\partial^2\Psi(x,t)}{\partial x^2}-\frac{i}{\hbar}V(x,t)\Psi(x,t)
+    \end{equation}
+\end{postulate}
 
 \section{Interpretación}
 La interpretación probabilística considera la función de onda como una función de probabilidad, más exactamente el módulo de la norma al cuadrado. Por tanto debe cumplir que para todo momento
-\begin{equation}\label{ecuacion_probabilidad_onda}
-\int_{-\infty}^{+\infty}\nor{\Psi(x,t)}^2 dx=1
+\begin{equation}
+    \label{ecuacion_probabilidad_onda}
+    \int_{-\infty}^{+\infty}\nor{\Psi(x,t)}^2 dx=1
 \end{equation}
 \begin{resultado}
-	Si la función de onda cumple la ecuación \ref{ecuacion_probabilidad_onda} para $t=0$, entonces lo cumple para todo $t$.
+    Si la función de onda cumple la ecuación \ref{ecuacion_probabilidad_onda} para $t=0$, entonces lo cumple para todo $t$.
 \end{resultado}
 
 Si una solución a la ecuación de Schröndiger se multiplica por una constante, sigue siendo solución de dicha ecuación, diremos que la función de onda que cumple la ecuación \ref{ecuacion_probabilidad_onda} está \define{normalizada}.
 
+
 \section{Soluciones a la ecuación de Schrödinger}
+
 \subsection{Propiedades de las soluciones}
 Es fácil comprobar que si $\Psi_1$ y $\Psi_2$ son funciones de onda para un potencial $V(x,t)$ y $a\in\C$, entonces $\Psi_1+\Psi_2$ y $a\Psi$ son ambos funciones de onda para el mismo potencial $V(x,t)$. En cuanto a la conjugada tenemos que $\Psi^*_1$ es el opuesto a la solución de la ecuación de onda del conjudado del potencial, es decir
 
-\begin{equation}\label{ecuacion_schrodinger_conjugada}
-\frac{\partial\Psi^*(x,t)}{\partial t}=\frac{-i\hbar}{2m}\frac{\partial^2\Psi^*(x,t)}{\partial x^2}+\frac{i}{\hbar}V^*(x,t)\Psi^*(x,t)
+\begin{equation}
+    \label{ecuacion_schrodinger_conjugada}
+    \frac{\partial\Psi^*(x,t)}{\partial t}=\frac{-i\hbar}{2m}\frac{\partial^2\Psi^*(x,t)}{\partial x^2}+\frac{i}{\hbar}V^*(x,t)\Psi^*(x,t)
 \end{equation}
 
 \subsubsection{Solución temporal}
@@ -56,86 +66,94 @@ Para algún punto del espacio $x_0$ la función $f$ se anula, es decir, $0=f''(x
 
 Nunca se anulan las funciones, podemos entonces dividir en todo momento la ecuación anterior por $f(x)g(t)$, quedando la ecuación $g'(t)/g(t)=i\hbar/(2m)f^{\prime\prime}(x)/f(x)-i/\hbar V(x)$. Teniendo que una expresión temporal es igual a una expresión espacial para todo tiempo y todo espacio, esto es posible si ambas expresiones son constantes en tiempo y espacio, y deben cumplirse a la vez que para algún $C\in\C$
 \begin{gather*}
-\frac{g'(t)}{g(t)}=C\Rightarrow g(t)=e^{Ct}
-\\
-\frac{i\hbar}{2m}\frac{f''(x)}{f(x)}-\frac{i}{\hbar}V(x)=C
+    \frac{g'(t)}{g(t)}=C\Rightarrow g(t)=e^{Ct}
+    \\
+    \frac{i\hbar}{2m}\frac{f''(x)}{f(x)}-\frac{i}{\hbar}V(x)=C
 \end{gather*}
 
 \begin{resultado}
-	Si el potencial $V$ es independiente del tiempo y $C\in\C$ cumple que $\frac{g'(t)}{g(t)}=C$, entonces $C$ es imaginario.
+    Si el potencial $V$ es independiente del tiempo y $C\in\C$ cumple que $\frac{g'(t)}{g(t)}=C$, entonces $C$ es imaginario.
 \end{resultado}
 \begin{proof}
-	Si calculamos la norma al cuadrado de $\Psi$ tenemos que
-	\begin{equation*}
-	\nor{\Psi(x,t)}^2=\Psi^*(x,t)\Psi(x,t)=f^*(x)g^*(t)f(x)g(t)=\nor{f(x)}^2\nor{g(t)}^2
-	\end{equation*}
-	Usando la ecuación \ref{ecuacion_probabilidad_onda} tenemos que
-	\begin{equation*}
-	1=\int_{-\infty}^{+\infty}\nor{\Psi(x,t)}^2 dx=\nor{g(t)}^2\int_{-\infty}^{+\infty}\nor{f(x)}^2 dx
-	\end{equation*}
-	Para que la ecuación anterior sea cierta, la norma de $g$ debe ser una constante, es decir, $g^*(t)g(t)=e^{C^*t}e^{Ct}=e^{(C^*+C)t}$ debe ser constante en el tiempo, por tanto se tiene como única opción que $C^*+C=0$, es decir, que $C$ sea un número imaginario.
+    Si calculamos la norma al cuadrado de $\Psi$ tenemos que
+    \begin{equation*}
+        \nor{\Psi(x,t)}^2=\Psi^*(x,t)\Psi(x,t)=f^*(x)g^*(t)f(x)g(t)=\nor{f(x)}^2\nor{g(t)}^2
+    \end{equation*}
+    Usando la ecuación \ref{ecuacion_probabilidad_onda} tenemos que
+    \begin{equation*}
+        1=\int_{-\infty}^{+\infty}\nor{\Psi(x,t)}^2 dx=\nor{g(t)}^2\int_{-\infty}^{+\infty}\nor{f(x)}^2 dx
+    \end{equation*}
+    Para que la ecuación anterior sea cierta, la norma de $g$ debe ser una constante, es decir, $g^*(t)g(t)=e^{C^*t}e^{Ct}=e^{(C^*+C)t}$ debe ser constante en el tiempo, por tanto se tiene como única opción que $C^*+C=0$, es decir, que $C$ sea un número imaginario.
 \end{proof}
 
 \begin{resultado}
-Si el potencial $V$ es independiente del tiempo y $\Psi(x,t)=f(x)g(t)$ se cumple que $\nor{\Psi(x,t)}^2=\nor{f(x)}^2$.
+    Si el potencial $V$ es independiente del tiempo y $\Psi(x,t)=f(x)g(t)$ se cumple que $\nor{\Psi(x,t)}^2=\nor{f(x)}^2$.
 \end{resultado}
 \begin{proof}
-Como hemos visto en el resultado anterior, $\nor{g(t)}^2=1$, y por tanto 
-\begin{equation}\label{probabilidad_atemporal}
-\nor{\Psi(x,t)}^2=\nor{f(x)}^2\nor{g(t)}^2=\nor{f(x)}^2
-\end{equation} 
+    Como hemos visto en el resultado anterior, $\nor{g(t)}^2=1$, y por tanto
+    \begin{equation}
+        \label{probabilidad_atemporal}
+        \nor{\Psi(x,t)}^2=\nor{f(x)}^2\nor{g(t)}^2=\nor{f(x)}^2
+    \end{equation}
 \end{proof}
-Así que $C=iD$ con $D\in\R$, las soluciones al estado estacionario queda como 
+Así que $C=iD$ con $D\in\R$, las soluciones al estado estacionario queda como
 \begin{gather*}
-\frac{g'(t)}{g(t)}=iD
-\\
-\frac{\hbar}{2m}\frac{f''(x)}{f(x)}-\frac{1}{\hbar}V(x)=D
+    \frac{g'(t)}{g(t)}=iD
+    \\
+    \frac{\hbar}{2m}\frac{f''(x)}{f(x)}-\frac{1}{\hbar}V(x)=D
 \end{gather*}
 
 \subsubsection{Hamiltoniano}
 Si consideramos el conjunto de la energía cinética más la energía potencial, obtenemos lo que llamamos el \define{Hamiltoniano} y tiene la expresión
-\begin{equation}\label{halmitoniano}
-H(x,p)=\frac{p^2}{2m}+V(x)
+\begin{equation}
+    \label{halmitoniano}
+    H(x,p)=\frac{p^2}{2m}+V(x)
 \end{equation}
 Llamamos \define{operador Hamiltoniano} al operador definido por
-\begin{equation}\label{operador_hamiltoniano}
-\widehat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)
+\begin{equation}
+    \label{operador_hamiltoniano}
+    \widehat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)
 \end{equation}
 Usando el operador Hamiltoniano en la ecuación \ref{ecuacion_schrodinger_tempoespacial} podemos expresarlo así
 \begin{equation*}
-\widehat{H}f(x)=-i\hbar Df(x)
+    \widehat{H}f(x)=-i\hbar Df(x)
 \end{equation*}
 Para simplificar la expresión llamamos $E=-\hbar D$ y por tanto las soluciones al estado estacionario queda como
 \begin{gather*}
-\frac{g'(t)}{g(t)}=-iE/\hbar
-\\
-\frac{\hbar}{2m}\frac{f''(x)}{f(x)}-\frac{1}{\hbar}V(x)=-E/\hbar\Rightarrow \frac{\hbar^2}{2m}\frac{f''(x)}{f(x)}-V(x)=-E
+    \frac{g'(t)}{g(t)}=-iE/\hbar
+    \\
+    \frac{\hbar}{2m}\frac{f''(x)}{f(x)}-\frac{1}{\hbar}V(x)=-E/\hbar\Rightarrow \frac{\hbar^2}{2m}\frac{f''(x)}{f(x)}-V(x)=-E
 \end{gather*}
 
 \begin{definicion}
-	Llamamos \define{Ecuación de Schrödinger independiente del tiempo} a la ecuación solución de la parte espacial del estado estacionario
-	\begin{equation}\label{ecuacion_schrodinger_tempoespacial}
-	-\frac{\hbar^2}{2m}f''(x)+V(x)f(x)= Ef(x)
-	\end{equation}
+    Llamamos \define{Ecuación de Schrödinger independiente del tiempo} a la ecuación solución de la parte espacial del estado estacionario
+    \begin{equation}
+        \label{ecuacion_schrodinger_tempoespacial}
+        -\frac{\hbar^2}{2m}f''(x)+V(x)f(x)= Ef(x)
+    \end{equation}
 \end{definicion}
 
-Resolviendo la ecuación diferencial temporal y usando el operador de Halmiton podemos dejar las soluciones de estados estacionarios como 
-\begin{equation}\label{solucion_estado_estacionario}
-\Psi(x,t)=f(x)g(t)\text{ donde }
-\begin{cases}
-g(t)=e^{-iEt/\hbar}\\ 
-\widehat{H}f(x)=Ef(x)\\
-E\in\R
-\end{cases}
-\end{equation} 
+Resolviendo la ecuación diferencial temporal y usando el operador de Halmiton podemos dejar las soluciones de estados estacionarios como
+\begin{equation}
+    \label{solucion_estado_estacionario}
+    \Psi(x,t)=f(x)g(t)\text{ donde }
+    \begin{cases}
+        g(t)=e^{-iEt/\hbar}\\
+        \widehat{H}f(x)=Ef(x)\\
+        E\in\R
+    \end{cases}
+\end{equation}
 
 \subsection{Observaciones a las soluciones del estado estacionario}
+
 \subsubsection{Solución general}
 La solución general del estado estacionario se puede expresar como
-\begin{equation}\label{solucion_general_estado_estacionario}
+\begin{equation}
+    \label{solucion_general_estado_estacionario}
     \Psi(x,t)=\sum_{k\in\N}c_k f_k(x)e^{-iE_k t/\hbar}
 \end{equation}
 Donde $\forall k\in\N$ $E_k\in\R$ y $\widehat{H}f_k(x)=E_k f_k(x)$
+
 \subsubsection{Desviación de H}
 $\avg{H} = \int_{-\infty}^{+\infty}\Psi^* \widehat{H}\Psi dx = \int_{-\infty}^{+\infty}\Psi^* E\Psi dx=E\int_{-\infty}^{+\infty}\Psi^* \Psi dx = E$
 
