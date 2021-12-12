@@ -1,0 +1,17 @@
+set terminal qt
+set samples 1000
+set key left
+set xzeroaxis ls 1 lw 1
+set yzeroaxis ls 1 lw 1
+set xtics axis 1
+set xtics add ("" 0)
+set ytics axis 1
+set ytics add ("" 0)
+set border 0
+set xrange [-5:5]
+set yrange [-8:8]
+set arrow from 0.75,0 to 0.75,7 heads ls 2
+set arrow from 0.75,7 to 3.75,7 heads ls 2
+set label "A" at 0.85, 3.5
+set label "{/Symbol l}" at 2.25, 7.3
+plot 7*sin(2*pi*x/3)
