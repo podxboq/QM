@@ -1,23 +1,32 @@
-\documentclass{tstextbook}
+\documentclass[11pt,fancy]{elegantbook}
 
-\usepackage{glossaries}
 \usepackage{tikz-cd}
-
-\graphicspath{{gnuplot/}{../gnuplot/}}
 \input{personalizacion.tex}
-\makeglossaries
-\overfullrule=1mm
+
+\title{Apuntes en mecánica cuántica}
+\subtitle{La visión de un matemático}
+
+\author{Francisco Costa Cano}
+\bioinfo{aka}{podxboq}
+\date{01/12/2021}
+\version{0.1}
+
+\extrainfo{La realidad es compleja, despiertos vivimos la parte real y durmiendo la parte imaginaria.}
+
+\logo{avatar.png}
+\cover{cover.png}
+
+\definecolor{customcolor}{RGB}{32,178,170}
+\colorlet{coverlinecolor}{customcolor}
+
 \begin{document}
 
-    \tsbook{Apuntes en mecánica cuántica}
-    {Francisco Costa}
-    {podxboq}
-    {2021}
-    {xxxxx}{xxx--xx--xxxx--xx--x}{0.1}
-    {Autor independiente}
-    {Murcia}
+    \maketitle
 
-    %\printglossaries
+    \frontmatter
+    \tableofcontents
+
+    \mainmatter
 
     \input{clasico_a_cuantico.tex}
 
@@ -35,8 +44,8 @@
 
     %\input{formularios.tex}
 
-    \addcontentsline{toc}{chapter}{\textcolor{tssteelblue}{Literatura}}
-    \printbibliography{}
-    \printindex
+
+    \input{elegantbook.tex}
+    \printbibliography
 
 \end{document}
