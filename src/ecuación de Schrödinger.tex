@@ -1,8 +1,9 @@
 \chapter{Ecuación de Schrödinger}
 
-
 \section{Función de onda}
-La \define{ecuación de Schrödinger}, describe la evolución temporal de una partícula subatómica masiva de naturaleza ondulatoria y no relativista.
+A la onda asociada a una partícula se le llama \define{función de onda}{funcion_de_onda} y se le suele denotar por $\Psi$.
+
+La \define{ecuación de Schrödinger}{ecuacion_de_schrodinger}, describe la evolución temporal de la función de onda de una partícula masiva y no relativista.
 \begin{postulate}[Ecuación de Schrödinger]
     \begin{equation}
     \label{eq:ecuacion_schrodinger}
@@ -10,48 +11,24 @@ La \define{ecuación de Schrödinger}, describe la evolución temporal de una pa
     \end{equation}
 \end{postulate}
 
-Donde $V(x,t)$ es la energía potencial del sistema.
+\section{Propiedades de las soluciones a la ecuación de Schrödinger}
 
-Llamamos \define{función de onda} a las soluciones de la ecuación de Schrödinger. Diremos que $\Psi$ es una función de onda del potencial $V(x,t)$.
-
-\begin{postulate}[Ecuación de Schrödinger en una dimensión]
-    \begin{equation}
-        \label{eq:ecuacion_schrodinger_una_dimension}
-        \frac{\partial\Psi(x,t)}{\partial t}=\frac{i\hbar}{2m}\frac{\partial^2\Psi(x,t)}{\partial x^2}-\frac{i}{\hbar}V(x,t)\Psi(x,t)
-    \end{equation}
-\end{postulate}
-
-\section{Interpretación}
-La interpretación probabilística considera la función de onda como una función de probabilidad, más exactamente el módulo de la norma al cuadrado. Por tanto debe cumplir que para todo momento
-\begin{equation}
-    \label{ecuacion_probabilidad_onda}
-    \int_{-\infty}^{+\infty}\nor{\Psi(x,t)}^2 dx=1
-\end{equation}
-\begin{resultado}
-    Si la función de onda cumple la ecuación \ref{ecuacion_probabilidad_onda} para $t=0$, entonces lo cumple para todo $t$.
-\end{resultado}
-
-Si una solución a la ecuación de Schröndiger se multiplica por una constante, sigue siendo solución de dicha ecuación, diremos que la función de onda que cumple la ecuación \ref{ecuacion_probabilidad_onda} está \define{normalizada}.
-
-
-\section{Soluciones a la ecuación de Schrödinger}
-
-\subsection{Propiedades de las soluciones}
+\subsection{Linealidad}
 Es fácil comprobar que si $\Psi_1$ y $\Psi_2$ son funciones de onda para un potencial $V(x,t)$ y $a\in\C$, entonces $\Psi_1+\Psi_2$ y $a\Psi$ son ambos funciones de onda para el mismo potencial $V(x,t)$. En cuanto a la conjugada tenemos que $\Psi^*_1$ es el opuesto a la solución de la ecuación de onda del conjudado del potencial, es decir
 
 \begin{equation}
     \label{ecuacion_schrodinger_conjugada}
-    \frac{\partial\Psi^*(x,t)}{\partial t}=\frac{-i\hbar}{2m}\frac{\partial^2\Psi^*(x,t)}{\partial x^2}+\frac{i}{\hbar}V^*(x,t)\Psi^*(x,t)
+    \frac{\partial\Psi^*(\vec{r},t)}{\partial t}=\frac{-i\hbar}{2m}\nabla\Psi^*(\vec{r},t)+\frac{i}{\hbar}V^*(\vec{r},t)\Psi^*(\vec{r},t)
 \end{equation}
 
 \subsubsection{Solución temporal}
-Vamos a estudiar el caso de las soluciones que sólo dependen del tiempo. En estos casos la ecuación \ref{ecuacion_schrodinger} queda como $\Psi^\prime(t) = -i/\hbar V(t)\Psi(t)$ cuya solución es es $\Psi(t)=e^{-it(W(t)+W)/\hbar}$ donde $W^\prime (t)=V(t)$ y $W\in\C$.
+Si la función de onda sólo depende del tiempo, la ecuación~\ref{eq:ecuacion_schrodinger} queda como $\Psi^\prime(t) = -i/\hbar V(t)\Psi(t)$ cuya solución es $\Psi(t)=e^{-it(W(t)+W)/\hbar}$ donde $W^\prime (t)=V(t)$ y $W\in\C$.
 
 \subsubsection{Solución espacial}
-Si la solución sólo depende del espacio, la ecuación \ref{ecuacion_schrodinger_alternativa} queda como $0=-\hbar^2/(2m)\Psi^{\prime\prime}(x)+V(x)\Psi(x)$, es decir $\Psi^{\prime\prime}(x)=2m/\hbar^2 V(x)\Psi(x)$.
+Si la función de onda sólo depende del espacio, la ecuación~\ref{eq:ecuacion_schrodinger} queda como $0=-i\hbar/(2m)\nabla\Psi(\vec{r})+V(\vec{r})\Psi(\vec{r})$, es decir $\nabla\Psi(\vec{r})=-i2m/\hbar V(\vec{r})\Psi(\vec{r})$.
 
 \subsection{Estados estacionarios}
-Vamos a estudiar un caso muy especial, donde el potencial no depende del tiempo y donde la solución es el producto de una solución espacial y otra temporal, es decir $\Psi(x,t)=f(x)g(t)$, la ecuación \ref{ecuacion_schrodinger} queda como $f(x)g'(t)=i\hbar/(2m)f''(x)g(t)-i/\hbar V(x)f(x)g(t)$.
+Vamos a estudiar un caso muy especial, donde el potencial no depende del tiempo y donde la solución es el producto de una solución espacial y otra temporal, simplificaremos las ecuaciones tomando una sola variable, es decir $\Psi(x,t)=f(x)g(t)$, la ecuación~\ref{eq:ecuacion_schrodinger} queda como $f(x)g'(t)=i\hbar/(2m)f''(x)g(t)-i/\hbar V(x)f(x)g(t)$.
 
 
 \textbf{Caso 1.}

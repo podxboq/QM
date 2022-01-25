@@ -1,0 +1,86 @@
+\chapter{Formulación mecánica Lagrangiana}
+
+
+\section{El lagrangiano del sistema}
+
+El lagrangiano es una aplicación escalar definida sobre un cierto espacio de posibles estados del sistema, donde dicho sistema viene determinado en cada momento por la posición y velocidad de cada uno de sus componentes.
+
+El espacio de estados es una variedad diferenciable construida como el fibrado tangente $T\mathcal{M}$ de una variedad $\mathcal{M}$ y el lagrangiano es una función de la forma $\maps{L}{T\mathcal{M}\times\R}{\R}$.
+
+Para la física clásica, el lagrangiano de un sistema, se forma mediante la energía cinética ($T$) y la energía potencial ($V$) de tal manera que:
+\begin{postulate}[Lagrangiano clásico en base a la energía]
+    \begin{equation}
+        \label{eq:lagrangiano_clasico}
+        L(x,\dot{x},t)=T-V=\frac{1}{2}m\dot{x}(t)^2-V(x,t)
+    \end{equation}
+\end{postulate}
+
+
+\section{Principio de mínima acción}
+
+El principio de mínima acción o principio de Hamilton, es un postulado básico de la mecánica clásica y la mecánica relativista para describir la evolución a lo largo del tiempo del estado de movimiento de una partícula como de un campo físico.
+
+Históricamente, el principio de mínima acción postulaba que, la evolución temporal de todo sistema físico se daba de tal manera que una cantidad denominada <<acción>> tendía a ser la mínima posible.
+
+Si $\maps{\alpha}{I=[t_1, t_2]}{\R^n}$ es la trayectoria de una partícula y $\maps{L}{\R^n\times\R^n\times\R}{\R}$ describe el sistema en base a su posición y su velocidad, definimos la acción $S$ como:
+\begin{postulate}[Acción del sistema sobre una trayectoria]
+    \begin{equation}
+        \label{eq:accion}
+        S(\alpha,I)=\int_{I}L(\alpha(t), \dot{\alpha}(t), t)\ dt
+    \end{equation}
+\end{postulate}
+
+El \textbf{principio de mínima acción} o \textbf{principio de Hamilton}, dice que la trayectoria que una partícula toma, es aquella para la cual, la acción sea mínima.
+Podemos deducir, que la minimicidad de la acción es equivalente a que se cumpla la ecuación del movimiento de Euler-Lagrange:
+\begin{postulate}[Ecuación de Euler-Lagrange del movimiento]
+    \begin{equation}
+        \label{eq:euler_lagrange}
+        \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\right)=\frac{\partial L}{\partial \alpha}
+    \end{equation}
+\end{postulate}
+
+
+\section{Energía}
+La energía de un sistema es la suma de la energía cinética y la energía potencial $E=K+V$, si ponemos esta expresión en terminos del lagrangiano, tenemos que $E=T+V=T+(T-L)=2T-L$.
+
+Es fácil comprobar que $\frac{\partial L}{\partial\dot{\alpha}}\dot{\alpha}=m\dot{\alpha}^2=2T$, obteniendo las siguientes expresiones de la energía:
+\begin{equation}
+    \label{eq:energia_lagrangiana}
+    E(\alpha, \dot{\alpha})=L(\alpha, \dot{\alpha})+m\dot{\alpha}^2=\frac{\partial L}{\partial\dot{\alpha}}\dot{\alpha}-L
+\end{equation}
+
+
+\section{Conservación de la energía}
+Es lógico pensar que las leyes de la física no varian con el tiempo, esto nos obliga a exigir que el lagrangiano de un sistema sea el mismo con respecto al tiempo, así pues, debemos tener que $\dot{L}=0$.
+Aplicando la regla de la cadena tenemos:
+\begin{equation*}
+    \dot{L}=\frac{dL(\alpha, \dot{\alpha})}{dt}=\frac{\partial L}{\partial \alpha}\frac{d\alpha}{dt}+\frac{\partial L}{\partial \dot{\alpha}}\frac{d\dot{\alpha}}{dt}\by{\ref{eq:euler_lagrange}}\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\right)\dot{\alpha}+\frac{\partial L}{\partial \dot{\alpha}}\frac{d\dot{\alpha}}{dt}=\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\dot{\alpha}\right)\by{\ref{eq:energia_lagrangiana}}\frac{d}{dt}\left(E+L\right)=\dot{E}+\dot{L}
+\end{equation*}
+La igualdad anterior nos lleva a la expresión $\dot{E}=0$, es decir, la energía no varía con el tiempo.
+
+
+\section{Las leyes de Newton a través del lagrangiano}
+La tercera ley de Newton, dice que la fuerza es la masa por la aceleración, como la fuerza viene regida por el potencial $-\frac{\partial V}{\partial\alpha}$ y la aceleración es la variación de la velocidad, la tercera ley de Newton queda en:
+\begin{equation*}
+    -\frac{\partial V}{\partial\alpha} = m\frac{d\dot{\alpha}}{dt}
+\end{equation*}
+Ahora tenemos las siguientes igualdades:
+\begin{subequations}
+    \begin{equation*}
+        L=\frac{1}{2}m\dot{\alpha}^2-V(\alpha).
+    \end{equation*}
+    \begin{equation*}
+        \frac{\partial L}{\partial \alpha}=-\frac{\partial V}{\partial \alpha}
+    \end{equation*}
+    \begin{equation*}
+        \frac{\partial L}{\partial\dot{\alpha}}=m\dot{\alpha}
+    \end{equation*}
+\end{subequations}
+
+
+\section{Acciones equivalentes}
+\begin{definition}
+    Diremos que dos trayectorias $\maps{\alpha,\beta}{[t_1, t_2]}{\R^n}$ son \define{equivalentes}{trayectorias equivalentes} si sus acciones tienen el mismo valor.
+\end{definition}
+
+Dos trayectorias $\alpha, \beta$ son equivalentes, si la acción sobre su diferencia es cero, por lo tanto $\int_{t_1}^{t_2} L(\alpha, \dot{\alpha}, t)-L(\beta, \dot{\beta}, t)=0$, es decir, existe una función $\maps{f}{\R^n\times\R^n\R}{\R}$ que es la primitiva de $L(\alpha, \dot{\alpha})-L(\beta, \dot{\beta})$ con respecto al tiempo para cual $f(\alpha(t_2))-f(\alpha(t_1))=0$ y $L(\alpha, \dot{\alpha})=L(\beta, \dot{\beta})+\frac{df}{dt}$
