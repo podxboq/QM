@@ -18,24 +18,26 @@ Para la física clásica, el lagrangiano de un sistema, se forma mediante la ene
 
 \section{Principio de mínima acción}
 
-El principio de mínima acción o principio de Hamilton, es un postulado básico de la mecánica clásica y la mecánica relativista para describir la evolución a lo largo del tiempo del estado de movimiento de una partícula como de un campo físico.
+El principio de mínima acción o principio de Hamilton, es un postulado básico de la mecánica clásica y la mecánica relativista para describir la evolución a lo largo del tiempo del estado de movimiento de una partícula.
 
 Históricamente, el principio de mínima acción postulaba que, la evolución temporal de todo sistema físico se daba de tal manera que una cantidad denominada <<acción>> tendía a ser la mínima posible.
 
-Si $\maps{\alpha}{I=[t_1, t_2]}{\R^n}$ es la trayectoria de una partícula y $\maps{L}{\R^n\times\R^n\times\R}{\R}$ describe el sistema en base a su posición y su velocidad, definimos la acción $S$ como:
-\begin{postulate}[Acción del sistema sobre una trayectoria]
+Consideremos un sistema definido por el lagrangiano $\maps{L}{\R^n\times\R^n\times\R}{\R}$ y $\maps{\alpha}{I=[t_1, t_2]}{\R^n}$ la trayectoria de una partícula, si restringimos el Lagrangiano a la trayectoria, podemos definir la función real $L_\alpha(t)=L(\alpha(t), \dot{\alpha}(t), t)$.
+
+\begin{definition}
+    Sea $\maps{L}{\R^n\times\R^n\times\R}{\R}$ el lagrangiano de un sistema y $\maps{\alpha}{I=[t_1, t_2]}{\R^n}$ la trayectoria de una partícula, definimos la \define{acción del lagrangiano sobre $\alpha$ en $I$}{acción sobre una trayectoria} a:
     \begin{equation}
         \label{eq:accion}
-        S(\alpha,I)=\int_{I}L(\alpha(t), \dot{\alpha}(t), t)\ dt
+        S(\alpha,I)=\int_{I}L_\alpha(t) dt
     \end{equation}
-\end{postulate}
+\end{definition}
 
 El \textbf{principio de mínima acción} o \textbf{principio de Hamilton}, dice que la trayectoria que una partícula toma, es aquella para la cual, la acción sea mínima.
 Podemos deducir, que la minimicidad de la acción es equivalente a que se cumpla la ecuación del movimiento de Euler-Lagrange:
 \begin{postulate}[Ecuación de Euler-Lagrange del movimiento]
     \begin{equation}
         \label{eq:euler_lagrange}
-        \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\right)=\frac{\partial L}{\partial \alpha}
+        \frac{d}{dt}\left(\frac{\partial L_\alpha}{\partial \dot{\alpha}}\right)=\frac{\partial L_\alpha}{\partial \alpha}
     \end{equation}
 \end{postulate}
 
@@ -78,9 +80,102 @@ Ahora tenemos las siguientes igualdades:
 \end{subequations}
 
 
-\section{Acciones equivalentes}
+\section{Trayectorias equivalentes}
 \begin{definition}
-    Diremos que dos trayectorias $\maps{\alpha,\beta}{[t_1, t_2]}{\R^n}$ son \define{equivalentes}{trayectorias equivalentes} si sus acciones tienen el mismo valor.
+    Diremos que dos trayectorias $\maps{\alpha,\beta}{I}{\R^n}$ son \define{equivalentes sobre $I$}{trayectorias equivalentes} si $S(\alpha, I)=S(\beta, I)$.
 \end{definition}
 
-Dos trayectorias $\alpha, \beta$ son equivalentes, si la acción sobre su diferencia es cero, por lo tanto $\int_{t_1}^{t_2} L(\alpha, \dot{\alpha}, t)-L(\beta, \dot{\beta}, t)=0$, es decir, existe una función $\maps{f}{\R^n\times\R^n\R}{\R}$ que es la primitiva de $L(\alpha, \dot{\alpha})-L(\beta, \dot{\beta})$ con respecto al tiempo para cual $f(\alpha(t_2))-f(\alpha(t_1))=0$ y $L(\alpha, \dot{\alpha})=L(\beta, \dot{\beta})+\frac{df}{dt}$
+Si tenemos dos trayectorias $\alpha, \beta$ equivalentes sobre $I=[t_1, t_2]$, la diferencia de sus acciones es cero, por lo tanto $\int_{I} L_\beta(t)-L_\alpha(t)=0$, es decir, existe una función $\maps{f}{\R}{\R}$ que es la primitiva de $L_\beta-L_\alpha$ tal que:
+\begin{postulate}[Relación del lagrangiano para trayectorias equivalentes]
+    \begin{subequations}
+        \begin{equation}
+            \label{eq:lagrangiano_trayectorias_equivalentes_1}
+            L_\beta=L_\alpha+\frac{df}{dt}
+        \end{equation}
+        \begin{equation}
+            \label{eq:lagrangiano_trayectorias_equivalentes_2}
+            f(t_1)=f(t_2)
+        \end{equation}
+    \end{subequations}
+\end{postulate}
+
+\section{Variación de la acción}
+Ahora nos podemos preguntar cómo varia la acción para dos trayectorias $\maps{\alpha,\beta}{I}{\R^n}$, es decir, cuanto vale la diferencia de sus acciones, $S(\beta, I)-S(\alpha, I)$.
+
+El lagrangiano en $\beta$, se puede aproximar en primer orden por su desarrollo de Taylor~\ref{eq:polinomio-taylor-dos-variables}, obteniendo:
+\begin{equation*}
+    L(\beta, \dot{\beta}, t)\approx L(\alpha, \dot{\alpha}, t)+\frac{\partial L}{\partial\alpha}(\beta-\alpha)+\frac{\partial L}{\partial\dot{\alpha}}(\dot{\beta}-\dot{\alpha})
+\end{equation*}
+
+Y usando la ecuación el Euler-Lagrange~\ref{eq:euler_lagrange} podemos expresar la diferencia de los lagrangianos como un diferencial pues:
+\begin{equation}
+    \label{variacion-lagrange}
+    \begin{align}
+        L(\beta, \dot{\beta}, t)- L(\alpha, \dot{\alpha}, t) & \approx\frac{\partial L}{\partial\alpha}(\beta-\alpha)+\frac{\partial L}{\partial\dot{\alpha}}(\dot{\beta}-\dot{\alpha})=\\
+        & \by{\ref{eq:euler_lagrange}}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\alpha}}\right)(\beta-\alpha)+\frac{\partial L}{\partial\dot{\alpha}}\frac{d(\beta-\alpha)}{dt} =\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)\right)
+    \end{align}
+\end{equation}
+
+Y esta expresión es justo el resultado obtenido en~\ref{eq:lagrangiano_trayectorias_equivalentes_1}, por lo que para dos trayectorias, sus lagrangianos están relacionados por la siguiente relación:
+\begin{equation}
+    \label{eq:lagrangianos_relacionados}
+    L_\beta=L_\alpha+\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)\right)
+\end{equation}
+
+Y ¿que pasa con sus acciones? o mejor dicho, con la diferencia de sus acciones:
+
+\begin{equation}
+    \label{eq:variacion-accion}
+    \begin{align}
+        S(\beta, I)-S(\alpha, I) & = \int_I L(\beta, \dot{\beta}, t)- L(\alpha, \dot{\alpha}, t)\ dt\approx\int_I\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)\right)\ dt\so \\
+        S(\beta, I)-S(\alpha, I) & = \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)+C
+    \end{align}
+\end{equation}
+
+Para alguna constante $C\in\R$.
+Si además consideramos que ambas trayectorias, son equivalentes, entonces sus acciones son iguales y la expresión~\ref{eq:variacion-accion} nos proporciona unos de los resultados más importantes de la física:
+\begin{equation*}
+    \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha) = \text{cte}
+\end{equation*}
+
+Todo el desarrollo de esta sección, es la demostración del teorema de Noether.
+
+\begin{definition}
+    Dadas dos trayectorias $\maps{\alpha,\beta}{I}{\R^n}$, llamamos \define{flujo de Noether}{Flujo de Noether} a
+    \begin{equation}
+        \label{eq:flujo_noether}
+        \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)
+    \end{equation}
+\end{definition}
+
+\begin{theorem}[Teorema de Noether]
+    \label{thm:noether}
+    Si la acción de un sistema con lagrangiano $L$ es invariante bajo la transformación de $\alpha$ a $\beta$ tal que el cambio en el lagrangiano es de la forma $L_\beta=L_\alpha+\frac{df}{dt}$ entonces el flujo de Noether, permanece constante.
+\end{theorem}
+
+
+\chapter{Simetrías y cantidades conservadas}
+Cuando el lagrangiano de un sistema tiene una simetría $\sigma$, éste se mantiene invariante tras aplicar la simetría, y por tanto, toda trayectoria $\alpha$ es equivalente a $\sigma(\alpha)$, y estamos en condiciones de aplicar el teorema de Noether~\ref{thm:noether} y afirmar por tanto que el flujo de Noether es constante.
+
+
+\section{Homogeneidad del espacio y conservación del momento lineal}
+Es lógico pensar que las ecuaciones de la física no varien según el lugar del espacio elegido, por eso, un cambio de coordenadas del tipo $\beta=\alpha+p_0$ donde $p_0\in\R^n$ debe dejar invariante el lagrangiano y dejar el flujo de Noether constante, es decir
+\begin{equation}
+    \label{eq:conservacion_momento_lineal}
+    \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha) = \frac{\partial L}{\partial\dot{\alpha}}p_0=\text{cte}\so\frac{\partial L}{\partial\dot{\alpha}}=\text{cte}
+\end{equation}
+
+\section{Isotropía del espacio y conservación del momento angular}
+Es lógico pensar que las ecuaciones de la física no varien según la orientación elegida, por eso, una rotación en un plano del tipo $\beta=\alpha + (\alpha\times s)$ donde $s$ es un vector sobre el eje de rotación, debe dejar invariante el lagrangiano y dejar el flujo de Noether constante, es decir
+\begin{equation}
+    \label{eq:conservacion_momento_angular}
+    \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha) = \frac{\partial L}{\partial\dot{\alpha}}(\alpha\times s) = s \frac{\partial L}{\partial\dot{\alpha}}\times \alpha=\text{cte}\so\frac{\partial L}{\partial\dot{\alpha}}\times \alpha=\text{cte}
+\end{equation}
+
+\section{Homogeneidad del tiempo y conservación de la energía}
+Es lógico pensar que las ecuaciones de la física no varien según la orientación elegida, por eso, una rotación en un plano del tipo $\beta=\alpha + (\alpha\times s)$ donde $s$ es un vector sobre el eje de rotación, debe dejar invariante el lagrangiano y dejar el flujo de Noether constante, es decir
+\begin{equation}
+    \label{eq:conservacion_momento_angular}
+    \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha) = \frac{\partial L}{\partial\dot{\alpha}}(\alpha\times s) = s \frac{\partial L}{\partial\dot{\alpha}}\times \alpha=\text{cte}\so\frac{\partial L}{\partial\dot{\alpha}}\times \alpha=\text{cte}
+\end{equation}
+
