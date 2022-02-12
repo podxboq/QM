@@ -51,16 +51,6 @@ Es fácil comprobar que $\frac{\partial L}{\partial\dot{\alpha}}\dot{\alpha}=m\d
     E(\alpha, \dot{\alpha})=L(\alpha, \dot{\alpha})+m\dot{\alpha}^2=\frac{\partial L}{\partial\dot{\alpha}}\dot{\alpha}-L
 \end{equation}
 
-
-\section{Conservación de la energía}
-Es lógico pensar que las leyes de la física no varian con el tiempo, esto nos obliga a exigir que el lagrangiano de un sistema sea el mismo con respecto al tiempo, así pues, debemos tener que $\dot{L}=0$.
-Aplicando la regla de la cadena tenemos:
-\begin{equation*}
-    \dot{L}=\frac{dL(\alpha, \dot{\alpha})}{dt}=\frac{\partial L}{\partial \alpha}\frac{d\alpha}{dt}+\frac{\partial L}{\partial \dot{\alpha}}\frac{d\dot{\alpha}}{dt}\by{\ref{eq:euler_lagrange}}\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\right)\dot{\alpha}+\frac{\partial L}{\partial \dot{\alpha}}\frac{d\dot{\alpha}}{dt}=\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\dot{\alpha}\right)\by{\ref{eq:energia_lagrangiana}}\frac{d}{dt}\left(E+L\right)=\dot{E}+\dot{L}
-\end{equation*}
-La igualdad anterior nos lleva a la expresión $\dot{E}=0$, es decir, la energía no varía con el tiempo.
-
-
 \section{Las leyes de Newton a través del lagrangiano}
 La tercera ley de Newton, dice que la fuerza es la masa por la aceleración, como la fuerza viene regida por el potencial $-\frac{\partial V}{\partial\alpha}$ y la aceleración es la variación de la velocidad, la tercera ley de Newton queda en:
 \begin{equation*}
@@ -173,9 +163,9 @@ Es lógico pensar que las ecuaciones de la física no varien según la orientaci
 \end{equation}
 
 \section{Homogeneidad del tiempo y conservación de la energía}
-Es lógico pensar que las ecuaciones de la física no varien según la orientación elegida, por eso, una rotación en un plano del tipo $\beta=\alpha + (\alpha\times s)$ donde $s$ es un vector sobre el eje de rotación, debe dejar invariante el lagrangiano y dejar el flujo de Noether constante, es decir
-\begin{equation}
-    \label{eq:conservacion_momento_angular}
-    \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha) = \frac{\partial L}{\partial\dot{\alpha}}(\alpha\times s) = s \frac{\partial L}{\partial\dot{\alpha}}\times \alpha=\text{cte}\so\frac{\partial L}{\partial\dot{\alpha}}\times \alpha=\text{cte}
-\end{equation}
-
+Es lógico pensar que las leyes de la física no varian con el tiempo, esto nos obliga a exigir que el lagrangiano de un sistema sea el mismo con respecto al tiempo, así pues, debemos tener que $\dot{L}=0$.
+Aplicando la regla de la cadena tenemos:
+\begin{equation*}
+    \dot{L}=\frac{dL(\alpha, \dot{\alpha})}{dt}=\frac{\partial L}{\partial \alpha}\frac{d\alpha}{dt}+\frac{\partial L}{\partial \dot{\alpha}}\frac{d\dot{\alpha}}{dt}\by{\ref{eq:euler_lagrange}}\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\right)\dot{\alpha}+\frac{\partial L}{\partial \dot{\alpha}}\frac{d\dot{\alpha}}{dt}=\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\dot{\alpha}\right)\by{\ref{eq:energia_lagrangiana}}\frac{d}{dt}\left(E+L\right)=\dot{E}+\dot{L}
+\end{equation*}
+La igualdad anterior nos lleva a la expresión $\dot{E}=0$, es decir, la energía no varía con el tiempo.
