@@ -16,31 +16,58 @@ Para la física clásica, el lagrangiano de un sistema, se forma mediante la ene
 \end{postulate}
 
 
+\section{Acción de un funcional}
+\begin{definition}
+    Sea $\maps{L}{\R^n\times\R^n\times\R}{\R}$ una aplicación real y $\maps{\alpha}{I=[t_1, t_2]}{\R^n}$ la trayectoria de una partícula, definimos el funcional \define{acción de L sobre $\alpha$}{acción sobre una trayectoria} a:
+    \begin{equation}
+        \label{eq:accion}
+        S_L(\alpha)=\int_{I}L(\alpha(t), \dot{\alpha}(t), t)\ dt
+    \end{equation}
+\end{definition}
+
+\begin{theorem}
+    El funcional $S_L(\alpha)$ es diferenciable y su valor es
+    \begin{equation}
+        \label{eq:accion_diferencial}
+        dS_L(\alpha)=\int_{I}\left( \frac{\partial L}{\partial \alpha}-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)\right)h\ dt + \left[ \frac{\partial L}{\partial \dot{\alpha}}h \right]_{t_0}^{t_1}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Por la definición de diferencial y realizando el dearrollo de Taylor tenemos que
+    \begin{equation*}
+        \begin{align}
+            S_L(\alpha + h) -  S_L(\alpha)& = \int_{I}L(\alpha(t)+h(t), \dot{\alpha}(t)+\dot{h}(t), t)\ dt - \int_{I}L(\alpha(t), \dot{\alpha}(t), t)\ dt =\\
+            &\by{\ref{eq:polinomio-taylor-dos-variables}}\int_{I}\left( \frac{\partial L}{\partial\alpha}h+\frac{\partial L}{\partial\dot{\alpha}}\dot{h}\right)\ dt+\mathcal{O}(h^2)\so\\
+            dS_L(\alpha)& =\int_{I}\left( \frac{\partial L}{\partial\alpha}h+\frac{\partial L}{\partial\dot{\alpha}}\dot{h}\right) = \int_{I}\left( \frac{\partial L}{\partial\alpha}h+\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}}h \right)-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)h\right)\ dt = \\
+            & = \int_{I}\left( \frac{\partial L}{\partial \alpha}h-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)h\right)\ dt +\int_{I}\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}}h \right)\ dt = \\
+            & = \int_{I}\left( \frac{\partial L}{\partial \alpha}-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)\right)h\ dt + \left[ \frac{\partial L}{\partial \dot{\alpha}}h \right]_{t_0}^{t_1}
+        \end{align}
+    \end{equation*}
+\end{proof}
+
+\section{Ecuación de Euler-Lagrange}
+
+\begin{theorem}
+    Una trayectoria $\alpha$ alcanza un valor extremo (máximo o mínimo) en el funcional $S_L(\alpha)$ sí y sólo sí se da la siguiente igualdad llamada \define{ecuación de Euler-Lagrange}{Ecuación de Euler-Lagrange}
+    \begin{equation}
+        \label{eq:euler-lagrange}
+        \frac{\partial L}{\partial \alpha}=\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Usando el resultado \ref{eq:variacion-accion}, válido para cualquier aplicación $h$, tenemos que en particular, para todas las aplicaciones tal que $h(t_0)=h(t_1)$, el segundo sumando vale $0$ y el primero tenemos que
+    \begin{equation*}
+        \int_{I}\left( \frac{\partial L}{\partial \alpha}-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)\right)h\ dt = 0 \so \frac{\partial L}{\partial \alpha}-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right) = 0
+    \end{equation*}
+\end{proof}
+
 \section{Principio de mínima acción}
 
 El principio de mínima acción o principio de Hamilton, es un postulado básico de la mecánica clásica y la mecánica relativista para describir la evolución a lo largo del tiempo del estado de movimiento de una partícula.
 
-Históricamente, el principio de mínima acción postulaba que, la evolución temporal de todo sistema físico se daba de tal manera que una cantidad denominada <<acción>> tendía a ser la mínima posible.
+Históricamente, el principio de mínima acción postulaba que, la evolución temporal de todo sistema físico se daba de tal manera que una cantidad denominada <<acción>> tendía a ser la mínima posible para el funcional sobre el lagrangiano.
 
-Consideremos un sistema definido por el lagrangiano $\maps{L}{\R^n\times\R^n\times\R}{\R}$ y $\maps{\alpha}{I=[t_1, t_2]}{\R^n}$ la trayectoria de una partícula, si restringimos el Lagrangiano a la trayectoria, podemos definir la función real $L_\alpha(t)=L(\alpha(t), \dot{\alpha}(t), t)$.
-
-\begin{definition}
-    Sea $\maps{L}{\R^n\times\R^n\times\R}{\R}$ el lagrangiano de un sistema y $\maps{\alpha}{I=[t_1, t_2]}{\R^n}$ la trayectoria de una partícula, definimos la \define{acción del lagrangiano sobre $\alpha$ en $I$}{acción sobre una trayectoria} a:
-    \begin{equation}
-        \label{eq:accion}
-        S(\alpha,I)=\int_{I}L_\alpha(t) dt
-    \end{equation}
-\end{definition}
-
-El \textbf{principio de mínima acción} o \textbf{principio de Hamilton}, dice que la trayectoria que una partícula toma, es aquella para la cual, la acción sea mínima.
-Podemos deducir, que la minimicidad de la acción es equivalente a que se cumpla la ecuación del movimiento de Euler-Lagrange:
-\begin{postulate}[Ecuación de Euler-Lagrange del movimiento]
-    \begin{equation}
-        \label{eq:euler_lagrange}
-        \frac{d}{dt}\left(\frac{\partial L_\alpha}{\partial \dot{\alpha}}\right)=\frac{\partial L_\alpha}{\partial \alpha}
-    \end{equation}
-\end{postulate}
-
+El \textbf{principio de mínima acción} o \textbf{principio de Hamilton}, dice que la trayectoria que una partícula toma, es aquella para la cual, la acción del Lagrangiano sobre la trayectoria sea mínima.
 
 \section{Energía}
 La energía de un sistema es la suma de la energía cinética y la energía potencial $E=K+V$, si ponemos esta expresión en terminos del lagrangiano, tenemos que $E=T+V=T+(T-L)=2T-L$.
@@ -50,6 +77,7 @@ Es fácil comprobar que $\frac{\partial L}{\partial\dot{\alpha}}\dot{\alpha}=m\d
     \label{eq:energia_lagrangiana}
     E(\alpha, \dot{\alpha})=L(\alpha, \dot{\alpha})+m\dot{\alpha}^2=\frac{\partial L}{\partial\dot{\alpha}}\dot{\alpha}-L
 \end{equation}
+
 
 \section{Las leyes de Newton a través del lagrangiano}
 La tercera ley de Newton, dice que la fuerza es la masa por la aceleración, como la fuerza viene regida por el potencial $-\frac{\partial V}{\partial\alpha}$ y la aceleración es la variación de la velocidad, la tercera ley de Newton queda en:
@@ -72,10 +100,10 @@ Ahora tenemos las siguientes igualdades:
 
 \section{Trayectorias equivalentes}
 \begin{definition}
-    Diremos que dos trayectorias $\maps{\alpha,\beta}{I}{\R^n}$ son \define{equivalentes sobre $I$}{trayectorias equivalentes} si $S(\alpha, I)=S(\beta, I)$.
+    Diremos que dos trayectorias $\maps{\alpha,\beta}{I=[t_0, t_1]}{\R^n}$ son \define{equivalentes}{trayectorias equivalentes} si $\alpha(t_0)=\beta(t_0)$, $\alpha(t_1)=\beta(t_1)$ y $S_L(\alpha)=S_L(\beta)$.
 \end{definition}
 
-Si tenemos dos trayectorias $\alpha, \beta$ equivalentes sobre $I=[t_1, t_2]$, la diferencia de sus acciones es cero, por lo tanto $\int_{I} L_\beta(t)-L_\alpha(t)=0$, es decir, existe una función $\maps{f}{\R}{\R}$ que es la primitiva de $L_\beta-L_\alpha$ tal que:
+Si tenemos dos trayectorias $\maps{\alpha,\beta}{I=[t_1, t_2]}{\R^n}$ equivalentes, la diferencia de sus acciones es cero, por lo tanto $\int_{I} L_\beta(t)-L_\alpha(t)\ dt=0$, es decir, existe una función $\maps{f}{\R}{\R}$ que es la primitiva de $L_\beta-L_\alpha$ tal que:
 \begin{postulate}[Relación del lagrangiano para trayectorias equivalentes]
     \begin{subequations}
         \begin{equation}
@@ -89,22 +117,8 @@ Si tenemos dos trayectorias $\alpha, \beta$ equivalentes sobre $I=[t_1, t_2]$, l
     \end{subequations}
 \end{postulate}
 
+
 \section{Variación de la acción}
-Ahora nos podemos preguntar cómo varia la acción para dos trayectorias $\maps{\alpha,\beta}{I}{\R^n}$, es decir, cuanto vale la diferencia de sus acciones, $S(\beta, I)-S(\alpha, I)$.
-
-El lagrangiano en $\beta$, se puede aproximar en primer orden por su desarrollo de Taylor~\ref{eq:polinomio-taylor-dos-variables}, obteniendo:
-\begin{equation*}
-    L(\beta, \dot{\beta}, t)\approx L(\alpha, \dot{\alpha}, t)+\frac{\partial L}{\partial\alpha}(\beta-\alpha)+\frac{\partial L}{\partial\dot{\alpha}}(\dot{\beta}-\dot{\alpha})
-\end{equation*}
-
-Y usando la ecuación el Euler-Lagrange~\ref{eq:euler_lagrange} podemos expresar la diferencia de los lagrangianos como un diferencial pues:
-\begin{equation}
-    \label{variacion-lagrange}
-    \begin{align}
-        L(\beta, \dot{\beta}, t)- L(\alpha, \dot{\alpha}, t) & \approx\frac{\partial L}{\partial\alpha}(\beta-\alpha)+\frac{\partial L}{\partial\dot{\alpha}}(\dot{\beta}-\dot{\alpha})=\\
-        & \by{\ref{eq:euler_lagrange}}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\alpha}}\right)(\beta-\alpha)+\frac{\partial L}{\partial\dot{\alpha}}\frac{d(\beta-\alpha)}{dt} =\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)\right)
-    \end{align}
-\end{equation}
 
 Y esta expresión es justo el resultado obtenido en~\ref{eq:lagrangiano_trayectorias_equivalentes_1}, por lo que para dos trayectorias, sus lagrangianos están relacionados por la siguiente relación:
 \begin{equation}
@@ -155,12 +169,14 @@ Es lógico pensar que las ecuaciones de la física no varien según el lugar del
     \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha) = \frac{\partial L}{\partial\dot{\alpha}}p_0=\text{cte}\so\frac{\partial L}{\partial\dot{\alpha}}=\text{cte}
 \end{equation}
 
+
 \section{Isotropía del espacio y conservación del momento angular}
 Es lógico pensar que las ecuaciones de la física no varien según la orientación elegida, por eso, una rotación en un plano del tipo $\beta=\alpha + (\alpha\times s)$ donde $s$ es un vector sobre el eje de rotación, debe dejar invariante el lagrangiano y dejar el flujo de Noether constante, es decir
 \begin{equation}
     \label{eq:conservacion_momento_angular}
     \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha) = \frac{\partial L}{\partial\dot{\alpha}}(\alpha\times s) = s \frac{\partial L}{\partial\dot{\alpha}}\times \alpha=\text{cte}\so\frac{\partial L}{\partial\dot{\alpha}}\times \alpha=\text{cte}
 \end{equation}
+
 
 \section{Homogeneidad del tiempo y conservación de la energía}
 Es lógico pensar que las leyes de la física no varian con el tiempo, esto nos obliga a exigir que el lagrangiano de un sistema sea el mismo con respecto al tiempo, así pues, debemos tener que $\dot{L}=0$.

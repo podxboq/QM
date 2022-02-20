@@ -1,0 +1,30 @@
+\chapter{Resultados básicos en Análisis}\label{ch:resultados_basicos_analisis}
+
+
+\section{Polinomio de Taylor}\label{sec:polinomio-de-taylor}
+
+\subsection{Taylor en una variable}\label{subsec:taylor_una_variable}
+Sea $f$ una función real definido en un intervalo abierto y $x_0$ un número del dominio, existe $\epsilon>0\in\R$ tal que $\forall\ x\in(x_0-\epsilon\coma x_0+\epsilon)$ se tiene que
+\begin{equation}
+    \label{eq:polinomio-taylor}
+    f(x)=\sum_{n=0}^{\infty} \frac{f^{(n)}(x_0)}{n !}(x-x_0)^n
+\end{equation}
+
+\subsection{Taylor en dos variables}\label{subsec:taylor_dos_variables}
+Sea $f$ una aplicación de $\R^2$ en $\R^2$, definido en un intervalo abierto y $(x_0, y_0)$ un elemento del dominio, existe $\epsilon > 0 \in\R$ tal que $\forall\ (x, y)\in(x_0-\epsilon\coma x_0+\epsilon)\times(y_0-\epsilon, y_0+\epsilon)$ se tiene que
+\begin{equation}
+    \label{eq:polinomio-taylor-dos-variables}
+    f(x,y)=\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{\partial^{n+m}f(x_0, y_0)}{\partial^n x\partial^m y}\frac{(x-x_0)^n(y-y_0)^m}{n!m!}
+\end{equation}
+
+
+\section{Diferencial de un funcional}\label{sec:diferencial_funcional}
+Sean $E, F$ dos espacios vectoriales normados, $a\in E$ y $f$ una aplicación en un entorno $U$ de $a$ en $F$. Diremos que $f$ es diferenciable en $a$ si existe una aplicación lineal y continua $\maps{u}{E}{F}$ y una función $\rho$ definida en algún entorno del $0\in E$ con valores en $F$ tal que
+\begin{subequations}
+    \begin{equation*}
+        lim_{x\to\infty}\rho(x)=0
+    \end{equation*}
+    \begin{equation*}
+        f(x+h)-f(x)=u(h)+\nor{h}\rho(h)
+    \end{equation*}
+\end{subequations}
