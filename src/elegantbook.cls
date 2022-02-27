@@ -271,7 +271,6 @@
 \newcommand\bioinfo[2]{\gdef\@bioinfo{\textbf{#1}: #2}}
 \newcommand{\updatename}{Actualización:}
 
-
 \graphicspath{{../images/}{../gnuplot}}
 
 \RequirePackage{tikz} %% load tikz without tikz
@@ -346,56 +345,26 @@
             colback=main!5,
             colbacktitle=main,
             overlay unbroken and last={
-                \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0);}},
+                \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0){};}},
         thmstyle/.style={
             common,
             colframe=second,
             colback=second!5,
             colbacktitle=second,
             overlay unbroken and last={
-                \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0);}},
+                \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0){};}},
         propstyle/.style={
             common,
             colframe=third,
             colback=third!5,
             colbacktitle=third,
             overlay unbroken and last={
-                \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0);}},}
-    % \newtcbtheorem[auto counter,number within=chapter]{definition}{\definitionname}{defstyle}{def}
-    \DeclareTColorBox[auto counter,number within=chapter]{definition}{ o t\label g }{
-        common,defstyle,
-        IfValueTF={#1}{title={\definitionname~\thetcbcounter\ (#1)}}{title=\definitionname~\thetcbcounter},
-        IfBooleanTF={#2}{label=#3}{}}
-    % \newtcbtheorem[auto counter,number within=chapter]{theorem}{\theoremname}{thmstyle}{thm}
-    \DeclareTColorBox[auto counter,number within=chapter]{theorem}{ o t\label g }{
-        common,thmstyle,
-        IfValueTF={#1}{title={\theoremname~\thetcbcounter\ (#1)}}{title=\theoremname~\thetcbcounter},
-        IfBooleanTF={#2}{label=#3}{}}
-    % \newtcbtheorem[auto counter,number within=chapter]{postulate}{\postulatename}{thmstyle}{pos}
-    \DeclareTColorBox[auto counter,number within=chapter]{postulate}{ o t\label g }{
-        common,thmstyle,
-        IfValueTF={#1}{title={#1~\thetcbcounter}}{title=\postulatename~\thetcbcounter},
-        IfBooleanTF={#2}{label=#3}{}}
-    % \newtcbtheorem[auto counter,number within=chapter]{axiom}{\axiomname}{thmstyle}{axi}
-    \DeclareTColorBox[auto counter,number within=chapter]{axiom}{ o t\label g }{
-        common,thmstyle,
-        IfValueTF={#1}{title={\axiomname~\thetcbcounter\ (#1)}}{title=\axiomname~\thetcbcounter},
-        IfBooleanTF={#2}{label=#3}{}}
-    % \newtcbtheorem[auto counter,number within=chapter]{corollary}{\corollaryname}{thmstyle}{cor}
-    \DeclareTColorBox[auto counter,number within=chapter]{corollary}{ o t\label g }{
-        common,thmstyle,
-        IfValueTF={#1}{title={\corollaryname~\thetcbcounter\ (#1)}}{title=\corollaryname~\thetcbcounter},
-        IfBooleanTF={#2}{label=#3}{}}
-    % \newtcbtheorem[auto counter,number within=chapter]{lemma}{\lemmaname}{thmstyle}{lem}
-    \DeclareTColorBox[auto counter,number within=chapter]{lemma}{ o t\label g }{
-        common,thmstyle,
-        IfValueTF={#1}{title={\lemmaname~\thetcbcounter\ (#1)}}{title=\lemmaname~\thetcbcounter},
-        IfBooleanTF={#2}{label=#3}{}}
-    % \newtcbtheorem[auto counter,number within=chapter]{proposition}{\propositionname}{propstyle}{pro}
-    \DeclareTColorBox[auto counter,number within=chapter]{proposition}{ o t\label g }{
-        common,propstyle,
-        IfValueTF={#1}{title={\propositionname~\thetcbcounter\ (#1)}}{title=\propositionname~\thetcbcounter},
-        IfBooleanTF={#2}{label=#3}{}}}{\relax}
+                \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0){};}},}
+    \DeclareTColorBox{postulate}{o}{common,thmstyle,title={#1}}
+    \DeclareTColorBox{definition}{o}{common,defstyle,IfValueTF={#1}{title={#1}}{title=\definitionname}}
+    \DeclareTColorBox{theorem}{o}{common,thmstyle,IfValueTF={#1}{title={#1}}{title=\theoremname}}
+    \DeclareTColorBox{proposition}{o}{common,propstyle,IfValueTF={#1}{title={#1}}{title=\propositionname}}
+}{\relax}
 
 
 \ifdefstring{\ELEGANT@mode}{simple}{
@@ -428,38 +397,29 @@
     \newtheorem{proposition}{\propositionname}[chapter]
 }{\relax}
 
-% main（green-def): example exercise problem solution
-% second（orange-thm）: proof note remark
-% third（blue-prop):  assumptions property conclusion custom
+%% Counter for all in a chapter
+\newcounter{all}[chapter]
+\setcounter{all}{0}
+\renewcommand{\theall}{\thechapter.\arabic{all}}
 
-%% Example with counter
-\newcounter{exam}[chapter]
-\setcounter{exam}{0}
-\renewcommand{\theexam}{\thechapter.\arabic{exam}}
 \newenvironment{example}[1][]{
-    \refstepcounter{exam}
-    \par\noindent\textbf{\color{main}{\examplename} \theexam #1 }\rmfamily}{
-    \par\ignorespacesafterend}
+    \refstepcounter{all}
+    \par\noindent\textbf{\color{main}{\examplename} \theall #1 }
+    \rmfamily}
+    {\par\ignorespacesafterend}
 
-%% Exercise with counter
-\newcounter{exer}[chapter]
-\setcounter{exer}{0}
-\renewcommand{\theexer}{\thechapter.\arabic{exer}}
 \newenvironment{exercise}[1][]{
-    \refstepcounter{exer}
-    \par\noindent\makebox[-3pt][r]{
-        \scriptsize\color{red!90}\HandPencilLeft\quad}
-    \textbf{\color{main}{\exercisename} \theexer #1 }\rmfamily}{
-    \par\ignorespacesafterend}
+    \refstepcounter{all}
+    \par\noindent\makebox[-3pt][r]{\scriptsize\color{red!90}\HandPencilLeft\quad}
+    \textbf{\color{main}{\exercisename} \theall #1 }
+    \rmfamily}
+    {\par\ignorespacesafterend}
 
-%% Problem with counter
-\newcounter{prob}[chapter]
-\setcounter{prob}{0}
-\renewcommand{\theprob}{\thechapter.\arabic{prob}}
 \newenvironment{problem}[1][]{
-    \refstepcounter{prob}
-    \par\noindent\textbf{\color{main}{\problemname} \theprob #1 }\rmfamily}{
-    \par\ignorespacesafterend}
+    \refstepcounter{all}
+    \par\noindent\textbf{\color{main}{\problemname} \theall #1 }
+    \rmfamily}
+    {\par\ignorespacesafterend}
 
 \newenvironment{note}{
     \par\noindent\makebox[-3pt][r]{
@@ -469,7 +429,7 @@
 \newenvironment{proof}{
     \par\noindent\textbf{\color{second}\proofname\;}
     \color{black!90}\cfs}{
-    % \hfill$\Box$\quad
+    \hfill$\Box$\quad
     \par}
 
 \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
@@ -677,3 +637,7 @@
 \thispagestyle{empty}%
 \newpage%
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\newtcbox{\refcolorequation}[1][red]{on line,
+    colback=#1!10!white,colframe=#1!50!black,
+    before,boxrule=0.5pt,
+    boxsep=0pt,left=4pt,right=4pt,top=1pt,bottom=1pt}

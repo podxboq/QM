@@ -35,10 +35,19 @@ V\coma\psi)\textmd{ dos cartas locales}}
 \providecommand{\vec}[1]{\overrightarrow{#1}}
 \newcommand{\set}[1]{\left\{#1\right\}}
 \newcommand{\where}{\mathrel{}\middle|\mathrel{}}
-
 \renewcommand*{\hbar}{{\mkern-1mu\mathchar'26\mkern-8mu\mathrm{h}}}
-\newcommand{\c}{\mathrm{c}}
+\renewcommand{\c}{\mathrm{c}}
 \newcommand{\h}{\mathrm{h}}
+% Box color
+\newcommand{\colorequation}[3]{\tcboxmath[on line,
+    fonttitle=\small\sffamily,
+    colbacktitle=#2!10!white,coltitle=#2!50!black,
+    title=\small{#1},
+    arc=0pt,outer arc=0pt,
+    colback=#2!10!white,colframe=#2!50!black,
+    boxsep=1pt,left=1pt,right=1pt,top=1pt,bottom=1pt,
+    boxrule=0pt]{#3}}
+
 % From mandi package
 \newcommand{\usk}{\cdot}
 \newcommand{\kilogram}{\mathrm{kg}}
@@ -50,7 +59,6 @@ V\coma\psi)\textmd{ dos cartas locales}}
 \newcommand{\tothefour}{^4}            % postfix  4
 \newcommand{\tento}[1]{10^{#1}}
 \newcommand{\xtento}[1]{\times\tento{#1}}
-% speedoflight
 \providecommand{\speedoflightsymbol}{\c}
 \providecommand{\speedoflightvalue}{2.99792458\times10^{8}}
 \providecommand{\speedoflightounits}{\meter\usk\second\inverse}
