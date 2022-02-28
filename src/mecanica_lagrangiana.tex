@@ -18,56 +18,71 @@ Para la física clásica, el lagrangiano de un sistema, se forma mediante la ene
 
 \section{Acción de un funcional}
 \begin{definition}
-    Sea $\maps{L}{\R^n\times\R^n\times\R}{\R}$ una aplicación real y $\maps{\alpha}{I=[t_1, t_2]}{\R^n}$ la trayectoria de una partícula, definimos el funcional \define{acción de L sobre $\alpha$}{acción sobre una trayectoria} a:
+    Sea $\maps{L}{\R^n\times\R^n\times\R}{\R}$ una aplicación real y $\maps{\alpha}{I=[t_0, t_1]}{\R^n}$ una función real, definimos el funcional \define{acción de L}{acción} a:
     \begin{equation}
         \label{eq:accion}
-        S_L(\alpha)=\int_{I}L(\alpha(t), \dot{\alpha}(t), t)\ dt
+        \begin{split}
+            \mapsdef{S_L}{\mathscr{C}(I, \R^n)}{R}{\alpha}{\int_{I}L(\alpha(t), \dot{\alpha}(t), t)\ dt}
+        \end{split}
     \end{equation}
 \end{definition}
 
 \begin{theorem}
-    El funcional $S_L(\alpha)$ es diferenciable y su valor es
+    En los términos de la definición \eqref{eq:accion}, el funcional $S_L$ es diferenciable en $\alpha$ y su valor es
     \begin{equation}
         \label{eq:accion_diferencial}
-        dS_L(\alpha)=\int_{I}\left( \frac{\partial L}{\partial \alpha}-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)\right)h\ dt + \left[ \frac{\partial L}{\partial \dot{\alpha}}h \right]_{t_0}^{t_1}
+        \begin{align}
+            \mapsdef{dS_L(\alpha)}{\mathscr{C}(I, \R^n)}{R}{h}{\int_{I}\left( \frac{\partial L}{\partial\alpha}h+\frac{\partial L}{\partial\dot{\alpha}}\dot{h}\right) dt}
+        \end{align}
     \end{equation}
 \end{theorem}
 \begin{proof}
-    Por la definición de diferencial y realizando el dearrollo de Taylor tenemos que
+    Por la definición de diferencial y realizando el desarrollo de Taylor tenemos que
     \begin{equation*}
-        \begin{align}
+        \begin{split}
             S_L(\alpha + h) -  S_L(\alpha)& = \int_{I}L(\alpha(t)+h(t), \dot{\alpha}(t)+\dot{h}(t), t)\ dt - \int_{I}L(\alpha(t), \dot{\alpha}(t), t)\ dt =\\
             &\by{\ref{eq:polinomio-taylor-dos-variables}}\int_{I}\left( \frac{\partial L}{\partial\alpha}h+\frac{\partial L}{\partial\dot{\alpha}}\dot{h}\right)\ dt+\mathcal{O}(h^2)\so\\
-            dS_L(\alpha)& =\int_{I}\left( \frac{\partial L}{\partial\alpha}h+\frac{\partial L}{\partial\dot{\alpha}}\dot{h}\right) = \int_{I}\left( \frac{\partial L}{\partial\alpha}h+\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}}h \right)-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)h\right)\ dt = \\
-            & = \int_{I}\left( \frac{\partial L}{\partial \alpha}h-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)h\right)\ dt +\int_{I}\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}}h \right)\ dt = \\
-            & = \int_{I}\left( \frac{\partial L}{\partial \alpha}-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)\right)h\ dt + \left[ \frac{\partial L}{\partial \dot{\alpha}}h \right]_{t_0}^{t_1}
-        \end{align}
+            dS_L(\alpha)(h) &=\int_{I}\left( \frac{\partial L}{\partial\alpha}h+\frac{\partial L}{\partial\dot{\alpha}}\dot{h}\right) dt
+        \end{split}
     \end{equation*}
 \end{proof}
+
 
 \section{Ecuación de Euler-Lagrange}
 
 \begin{theorem}
-    Una trayectoria $\alpha$ alcanza un valor extremo (máximo o mínimo) en el funcional $S_L(\alpha)$ sí y sólo sí se da la siguiente igualdad llamada \define{ecuación de Euler-Lagrange}{Ecuación de Euler-Lagrange}
+    Una función real $\alpha$ alcanza un valor extremo (máximo o mínimo) en el funcional $S_L$ sí y sólo sí se da la siguiente igualdad llamada \define{ecuación de Euler-Lagrange}{Ecuación de Euler-Lagrange}
     \begin{equation}
         \label{eq:euler-lagrange}
         \frac{\partial L}{\partial \alpha}=\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)
     \end{equation}
 \end{theorem}
 \begin{proof}
-    Usando el resultado \ref{eq:variacion-accion}, válido para cualquier aplicación $h$, tenemos que en particular, para todas las aplicaciones tal que $h(t_0)=h(t_1)$, el segundo sumando vale $0$ y el primero tenemos que
+    Una función alcanza un valor máximo o mínimo en el funcional $S_L$ cuando su diferencial se hace cero, es decir, que $dS_L(\alpha)(h)=0$ para cualquier función $h$.
+    \begin{equation*}
+        \begin{split}
+            0 = dS_L(\alpha)(h) &\by{\ref{eq:accion_diferencial}}\int_{I}\left( \frac{\partial L}{\partial\alpha}h+\frac{\partial L}{\partial\dot{\alpha}}\dot{h}\right) dt = \int_{I}\left( \frac{\partial L}{\partial\alpha}h+\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}}h \right)-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)h\right)\ dt = \\
+            & = \int_{I}\left( \frac{\partial L}{\partial \alpha}h-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)h\right)\ dt +\int_{I}\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}}h \right)\ dt = \\
+            & =\colorequation{1}{blue}{\int_I\left( \frac{\partial L}{\partial \alpha}-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)\right)h\ dt} + \colorequation {2}{green}{\left[ \frac{\partial L}{\partial \dot{\alpha}}h \right]_{t_0}^{t_1}}
+        \end{split}
+    \end{equation*}
+    En particular si nos restringimos a las funciones $h$ que cumplen $h(t_0)=0=h(t_1)$, el sumando \refcolorequation[green]{2} vale $0$ y el para el sumando \refcolorequation[blue]{1} tenemos que
     \begin{equation*}
         \int_{I}\left( \frac{\partial L}{\partial \alpha}-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right)\right)h\ dt = 0 \so \frac{\partial L}{\partial \alpha}-\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{\alpha}} \right) = 0
     \end{equation*}
 \end{proof}
 
+\begin{definition}
+    Llamaremos \define{trayectorias}{Trayectoria} a las funciones que cumplen la ecuación de Euler-Lagrange \eqref{eq:euler-lagrange}.
+\end{definition}
+
+
 \section{Principio de mínima acción}
 
-El principio de mínima acción o principio de Hamilton, es un postulado básico de la mecánica clásica y la mecánica relativista para describir la evolución a lo largo del tiempo del estado de movimiento de una partícula.
+El principio de mínima acción o principio de Hamilton, es un postulado básico de la física para describir la evolución a lo largo del tiempo del estado de movimiento de una partícula.
 
-Históricamente, el principio de mínima acción postulaba que, la evolución temporal de todo sistema físico se daba de tal manera que una cantidad denominada <<acción>> tendía a ser la mínima posible para el funcional sobre el lagrangiano.
+El \textbf{principio de mínima acción} o \textbf{principio de Hamilton}, dice que las partículas se mueven a traves de trayectorias que minimizan la acción del lagrangiano.
 
-El \textbf{principio de mínima acción} o \textbf{principio de Hamilton}, dice que la trayectoria que una partícula toma, es aquella para la cual, la acción del Lagrangiano sobre la trayectoria sea mínima.
 
 \section{Energía}
 La energía de un sistema es la suma de la energía cinética y la energía potencial $E=K+V$, si ponemos esta expresión en terminos del lagrangiano, tenemos que $E=T+V=T+(T-L)=2T-L$.
@@ -98,68 +113,53 @@ Ahora tenemos las siguientes igualdades:
 \end{subequations}
 
 
-\section{Trayectorias equivalentes}
-\begin{definition}
-    Diremos que dos trayectorias $\maps{\alpha,\beta}{I=[t_0, t_1]}{\R^n}$ son \define{equivalentes}{trayectorias equivalentes} si $\alpha(t_0)=\beta(t_0)$, $\alpha(t_1)=\beta(t_1)$ y $S_L(\alpha)=S_L(\beta)$.
-\end{definition}
+\section{Teorema de Noether}
 
-Si tenemos dos trayectorias $\maps{\alpha,\beta}{I=[t_1, t_2]}{\R^n}$ equivalentes, la diferencia de sus acciones es cero, por lo tanto $\int_{I} L_\beta(t)-L_\alpha(t)\ dt=0$, es decir, existe una función $\maps{f}{\R}{\R}$ que es la primitiva de $L_\beta-L_\alpha$ tal que:
-\begin{postulate}[Relación del lagrangiano para trayectorias equivalentes]
-    \begin{subequations}
-        \begin{equation}
-            \label{eq:lagrangiano_trayectorias_equivalentes_1}
-            L_\beta=L_\alpha+\frac{df}{dt}
-        \end{equation}
-        \begin{equation}
-            \label{eq:lagrangiano_trayectorias_equivalentes_2}
-            f(t_1)=f(t_2)
-        \end{equation}
-    \end{subequations}
-\end{postulate}
-
-
-\section{Variación de la acción}
-
-Y esta expresión es justo el resultado obtenido en~\ref{eq:lagrangiano_trayectorias_equivalentes_1}, por lo que para dos trayectorias, sus lagrangianos están relacionados por la siguiente relación:
-\begin{equation}
-    \label{eq:lagrangianos_relacionados}
-    L_\beta=L_\alpha+\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)\right)
-\end{equation}
-
-Y ¿que pasa con sus acciones? o mejor dicho, con la diferencia de sus acciones:
+Sean $\maps{\alpha,\beta}{I=[t_0, t_1]}{\R^n}$ dos funciones, tales que los lagrangianos para ambas trayectorias está relacionado por $L(\beta, \dot{\beta}, t) = L(\alpha, \dot{\alpha}, t)+\dot{f}$ para alguna función $f$.
+Entonces las respectivas acciones están relacionadas por una constante, pues
 
 \begin{equation}
     \label{eq:variacion-accion}
-    \begin{align}
-        S(\beta, I)-S(\alpha, I) & = \int_I L(\beta, \dot{\beta}, t)- L(\alpha, \dot{\alpha}, t)\ dt\approx\int_I\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)\right)\ dt\so \\
-        S(\beta, I)-S(\alpha, I) & = \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)+C
-    \end{align}
+    \begin{split}
+        S_L(\beta) & = \int_I L(\beta, \dot{\beta}, t) dt = \int_I L(\alpha, \dot{\alpha}, t)\ dt+\int_I \dot{f}dt=S_L(\alpha) +[f]_{t_0}^{t_1}
+    \end{split}
 \end{equation}
 
-Para alguna constante $C\in\R$.
-Si además consideramos que ambas trayectorias, son equivalentes, entonces sus acciones son iguales y la expresión~\ref{eq:variacion-accion} nos proporciona unos de los resultados más importantes de la física:
-\begin{equation*}
-    \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha) = \text{cte}
-\end{equation*}
+Y por tanto sus diferenciales son iguales.
+Así que en particular, si $\alpha$ es una trayectoria, también lo es $\beta$ y ademas tenemos que
 
-Todo el desarrollo de esta sección, es la demostración del teorema de Noether.
+\begin{equation}
+    \label{eq:diferencial_trayectoria}
+    \begin{split}
+    [f]
+        _{t_0}^{t_1} &= S_L(\beta) - S_L(\alpha) = S_L(\alpha + (\beta-\alpha))-S_L(\alpha)=dS_L(\alpha)(\beta-\alpha)=\\
+        &\by{\ref{eq:accion_diferencial}}\int_{I}\left( \frac{\partial L}{\partial\alpha}(\beta-\alpha)+\frac{\partial L}{\partial\dot{\alpha}}(\dot{\beta}-\dot{\alpha})\right) dt\by{\ref{eq:euler-lagrange}}\int_{I}\left( \frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\alpha}}\right)(\beta-\alpha)+\frac{\partial L}{\partial\dot{\alpha}}(\dot{\beta}-\dot{\alpha})\right) dt=\\
+        &=\int_{I}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)\right) dt = \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha) + \text{ cte }
+    \end{split}
+\end{equation}
+
+Es decir, que para trayectorias cuyos lagrangianos se diferencia por la diferencial de una función, existe una constante $\ct{C}$ tal que
+\begin{equation}
+    \label{eq:flujo_noether_para_trayectorias}
+    \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha) = \ct{C}
+\end{equation}
 
 \begin{definition}
-    Dadas dos trayectorias $\maps{\alpha,\beta}{I}{\R^n}$, llamamos \define{flujo de Noether}{Flujo de Noether} a
+    Dadas dos trayectorias $\maps{\alpha,\beta}{I}{\R^n}$, llamamos \define{flujo de Noether}{Flujo de Noether} de $\alpha$ a $\beta$ a
     \begin{equation}
         \label{eq:flujo_noether}
         \frac{\partial L}{\partial\dot{\alpha}}(\beta-\alpha)
     \end{equation}
 \end{definition}
 
-\begin{theorem}[Teorema de Noether]
+\begin{theorem}[Teorema de Noether~\eqref{thm:noether}]
     \label{thm:noether}
-    Si la acción de un sistema con lagrangiano $L$ es invariante bajo la transformación de $\alpha$ a $\beta$ tal que el cambio en el lagrangiano es de la forma $L_\beta=L_\alpha+\frac{df}{dt}$ entonces el flujo de Noether, permanece constante.
+    Si la acción de un sistema con lagrangiano $L$ es invariante bajo la transformación de $\alpha$ a $\beta$ tal que $L_\beta=L_\alpha+\dot{f}$ entonces el flujo de Noether de $\alpha$ a $\beta$, permanece constante.
 \end{theorem}
 
 
 \chapter{Simetrías y cantidades conservadas}
-Cuando el lagrangiano de un sistema tiene una simetría $\sigma$, éste se mantiene invariante tras aplicar la simetría, y por tanto, toda trayectoria $\alpha$ es equivalente a $\sigma(\alpha)$, y estamos en condiciones de aplicar el teorema de Noether~\ref{thm:noether} y afirmar por tanto que el flujo de Noether es constante.
+Cuando el lagrangiano de un sistema tiene una simetría $\sigma$, éste se mantiene invariante tras aplicar la simetría, y por tanto, toda trayectoria $\alpha$ es equivalente a $\sigma(\alpha)$, y estamos en condiciones de aplicar el teorema de Noether~\ref{thm:noether} y afirmar por tanto que el flujo de Noether de $\alpha$ a $\sigma(\alpha)$ es constante.
 
 
 \section{Homogeneidad del espacio y conservación del momento lineal}
@@ -182,6 +182,6 @@ Es lógico pensar que las ecuaciones de la física no varien según la orientaci
 Es lógico pensar que las leyes de la física no varian con el tiempo, esto nos obliga a exigir que el lagrangiano de un sistema sea el mismo con respecto al tiempo, así pues, debemos tener que $\dot{L}=0$.
 Aplicando la regla de la cadena tenemos:
 \begin{equation*}
-    \dot{L}=\frac{dL(\alpha, \dot{\alpha})}{dt}=\frac{\partial L}{\partial \alpha}\frac{d\alpha}{dt}+\frac{\partial L}{\partial \dot{\alpha}}\frac{d\dot{\alpha}}{dt}\by{\ref{eq:euler_lagrange}}\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\right)\dot{\alpha}+\frac{\partial L}{\partial \dot{\alpha}}\frac{d\dot{\alpha}}{dt}=\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\dot{\alpha}\right)\by{\ref{eq:energia_lagrangiana}}\frac{d}{dt}\left(E+L\right)=\dot{E}+\dot{L}
+    \dot{L}=\frac{dL(\alpha, \dot{\alpha})}{dt}=\frac{\partial L}{\partial \alpha}\frac{d\alpha}{dt}+\frac{\partial L}{\partial \dot{\alpha}}\frac{d\dot{\alpha}}{dt}\by{\ref{eq:euler-lagrange}}\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\right)\dot{\alpha}+\frac{\partial L}{\partial \dot{\alpha}}\frac{d\dot{\alpha}}{dt}=\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\alpha}}\dot{\alpha}\right)\by{\ref{eq:energia_lagrangiana}}\frac{d}{dt}\left(E+L\right)=\dot{E}+\dot{L}
 \end{equation*}
 La igualdad anterior nos lleva a la expresión $\dot{E}=0$, es decir, la energía no varía con el tiempo.
