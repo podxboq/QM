@@ -1,43 +1,45 @@
-\chapter{De lo clásico a lo cuántico}
+\chapter{De lo clásico a lo cuántico}\label{ch:de-lo-clásico-a-lo-cuántico}
 
 
 \section{La onda}\label{sec:la-onda}
 
 Para la física, una onda consiste en la propagación de una perturbación de energía sin transporte de materia.
-
 La magnitud física cuya perturbación se propaga se expresa como una función tanto de la posición como del tiempo
 $\psi(\vec{r},t)$.
 
-Matemáticamente se dice que dicha función es una onda si verifica la ecuación de ondas:
+Matemáticamente se dice que una función es una onda si verifica la ecuación de ondas:
 \begin{equation}
     \label{eq:ecuacion-onda}
     \nabla^2\psi(\vec {r},t)=\frac {1}{v^2}\frac{\partial^2\psi}{\partial t^2}(\vec {r},t)
 \end{equation}
 donde $v$ es la velocidad de propagación de la perturbación.
 
-\subsection{Elementos de una onda}\label{subsec:elementos-de-una-onda}
+\subsection{\energialementos de una onda}\label{subsec:elementos-de-una-onda}
 
 \begin{description}
-    \item[Cresta.] El punto de máxima separación con respecto de su posición de reposo.
-    \item[Valle.] El punto de máxima elongación de la onda, en sentido opuesto a la cresta.
-    \item[Amplitud ($A$).] La distancia vertical desde una cresta hasta el punto de equilibrio.
-    \item[Longitud de onda ($\lambda$).] La distancia entre dos crestas consecutivas.
-    \item[Número de onda angular ($k$).] La inversa de la longitud de onda en radianes.
-    \item[Periodo ($T$).] El tiempo empleado en completar una longitud de onda.
-    \item[Frecuencia ($\nu$).] El número de periodos por unidad de tiempo.
-    \item[Frecuencia angular ($\omega$).] La frecuencia en radianes por segundo.
-    \item[Fase ($\alpha$).] El mínimo valor que hace cíclica la posición.
+    \item[Cresta.] \energial punto de máxima separación con respecto de su posición de reposo.
+    \item[Valle.] \energial punto de máxima elongación de la onda, en sentido opuesto a la cresta.
+    \item[Amplitud ($\amplitud$).] La distancia vertical desde una cresta hasta el punto de equilibrio.
+    \item[Longitud de onda ($\longonda$).] La distancia entre dos crestas consecutivas.
+    \item[Número de onda angular ($\longondaangular$).] La inversa de la longitud de onda en radianes.
+    \item[Periodo ($\periodo$).] \energial tiempo empleado en completar una longitud de onda.
+    \item[Frecuencia ($\frecuencia$).] \energial número de periodos por unidad de tiempo.
+    \item[Frecuencia angular ($\frecuenciaangular$).] La frecuencia en radianes por segundo.
+    \item[Fase ($\fase$).] \energial mínimo valor que hace cíclica la posición.
     \item[Velocidad de fase ($v_f$).] La velocidad a la que se propaga el movimiento ondulatorio.
     \item[Velocidad de grupo ($v_g$).] La velocidad a la que se propaga las variaciones de la amplitud.
 \end{description}
-
-Aplicando las definiciones anteriores, tenemos: $k=\frac{2\pi}{\lambda}$, $\nu=\frac{1}{T}$,
-$v_f=\frac{\lambda}{T}=\frac{\nu}{k}$ y $\omega=2\pi\nu$.
+Podemos ver algunos de estos conceptos en la figura~\eqref{fig:elementos-onda}.
+Aplicando las definiciones anteriores, tenemos
+\begin{align*}
+    \longondaangular &= \frac{2\pi}{\longonda} & \frecuencia &=\frac{1}{\periodo} \\
+    v_f &= \frac{\longonda}{\periodo}=\frac{\frecuencia}{\longondaangular} & \frecuenciaangular &= 2\pi\frecuencia
+\end{align*}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{sin.png}
-    \caption{Elementos de una onda}
+    \includegraphics[width=0.6\textwidth]{sin}
+    \caption{\energialementos de una onda}
     \label{fig:elementos-onda}
 \end{figure}
 
@@ -45,117 +47,83 @@ $v_f=\frac{\lambda}{T}=\frac{\nu}{k}$ y $\omega=2\pi\nu$.
 La solución más sencilla a la ecuación de ondas es considerar una onda plana que se desplaza longitudinalmente en la dirección de la onda, donde si situamos el sistema de referencia en un punto de equilibrio tenemos la solución:
 \begin{equation}
     \label{eq:solucion-ecuacion-ondas-simple}
-    \psi(x,t)=A\sin(\omega t-kx)
+    \psi(x,t)=\amplitud\sin(\longondaangular x - \frecuenciaangular t)
 \end{equation}
 
-Pero la luz en una onda electro-magnética y como ya apreción Maxwell, el campo magnético aporta una componente a las ecuaciones en forma de onda compleja, y en este caso, la solución más sencilla de onda electro-magnética plana que se desplaza longitudinalmente en la dirección de la onda es:
+Pero la luz en una onda electro-magnética y como ya apreció Maxwell, el campo magnético aporta una componente a las ecuaciones en forma de onda compleja, y en este caso, la solución más sencilla de onda electro-magnética plana que se desplaza longitudinalmente en la dirección de la onda es:
 \begin{equation}
     \label{eq:solucion-ecuacion-ondas-complejas-simple}
-    \psi(x,t)=Ae^{i(\omega t-kx)}
+    \psi(x,t)=\amplitud e^{i(\longondaangular x - \frecuenciaangular t)}
 \end{equation}
 
 
 \section{Dualidad onda-partícula de De Broglie}\label{sec:dualidad-onda-partícula-de-de-broglie}
 
-Si los fotones son partículas y ondas a la vez, podemos usar el postulado de la mecánica relativista de Einstein para partículas, y a la vez, el postulado de Planck para ondas.
+Si los fotones son partículas y ondas a la vez, podemos usar el postulado de la mecánica relativista de \energiainstein para partículas, y a la vez, el postulado de Planck para ondas.
 
-\begin{postulate}[Valor de la energía de las ecuaciones de Einstein]
-    \label{pos:energia_einstein}
-    E=mc^2=pc
+\begin{postulate}[Valor de la energía de las ecuaciones de \energiainstein]
+    \begin{equation}
+        \label{eq:energia-einstein}
+        \energia=m{\speedoflightsymbol}^2=p\speedoflightsymbol
+    \end{equation}
 \end{postulate}
 
 \begin{postulate}[Valor de la energía de las ecuaciones de Planck]
-    \label{pos:energia_planck}
-    E=h\nu=\frac{hc}{\lambda}
+    \begin{equation}
+        \label{eq:energia-planck}
+        \energia=\plancksymbol\frecuencia=\frac{\plancksymbol\speedoflightsymbol}{\longonda}
+    \end{equation}
 \end{postulate}
 
 Así pues igualando ambas energías obtenemos la relación para cada partícula entre su momento y su longitud de onda:
 \begin{postulate}[Relación entre longitud de onda y momento de De Broglie]
-    \label{pos:dualidad_de_broglie}
-    \lambda=\frac{h}{p}
+    \begin{equation}
+        \label{eq:dualidad-de-broglie}
+        \longonda=\frac{\plancksymbol}{p}
+    \end{equation}
 \end{postulate}
 
 \begin{example}
-    Calcular la longitud de onda de una persona de masa $8$ kg cuando anda a una velocidad de $45$ km/h.
+    Calcular la longitud de onda de una persona de masa $\mass{8}$ cuando anda a una velocidad de $\velocity{45}$.
 
-    La persona tiene un momento de $8*45*1000/3600=1000$ Kg m/s. Así que la longitud de onda asociada es de $\lambda=\frac{6,6256*10^{-34}}{1000}=6,6256*10^{-37}$ metros.
+    La persona tiene un momento de $\momento{8*45*1000/3600=1000}$.
+    Así que la longitud de onda asociada es de $\longonda=\frac{6,6256*\tento{-34}}{1000}=\espacio{6,6256*\tento{-37}}$.
 \end{example}
 
 \begin{note}
-    La longitud de onda más pequeña que actualmente podemos observar es del orden de $10^{-20}$ metros con el \textbf{Cherenkov telescope array}.
+    La longitud de onda más pequeña que actualmente podemos observar es del orden de $\espacio{\tento{-20}}$ con el \textbf{Cherenkov telescope array}.
 \end{note}
 
-\subsection{Conclusiones}
+\subsection{Conclusiones}\label{subsec:conclusiones}
 Usando la nueva relación entre longitud de onda y momento, podemos obtener las siguientes igualdades:
-\begin{equation}
-    \label{eq:k_debroglie}
-    k=\frac{2\pi}{\lambda}\by{\ref{pos:dualidad_de_broglie}}\frac{2\pi p}{h}=\frac{p}{\hbar}
-\end{equation}
-\begin{equation}
-    \label{eq:omega_planck}
-    \omega=2\pi\nu\by{\ref{pos:energia_planck}}2\pi\frac{E}{h}=\frac{E}{\hbar}
-\end{equation}
-\begin{equation}
+\begin{align}
+    \label{eq:k-debroglie}
+    \longondaangular &= \frac{2\pi}{\longonda}\by{\ref{eq:dualidad-de-broglie}}\frac{2\pi p}{\plancksymbol}=\frac{p}{\planckbarsymbol}\\
+    \label{eq:omega-planck}
+    \frecuenciaangular &= 2\pi\frecuencia\by{\ref{eq:energia-planck}}2\pi\frac{\energia}{\plancksymbol}=\frac{\energia}{\planckbarsymbol} \\
     \label{eq:omega_debroglie}
-    \omega\by{\ref{eq:omega_planck}}\frac{E}{\hbar}=\frac{p^2}{2m\hbar}\by{\ref{pos:dualidad_de_broglie}}\frac{h^2}{\lambda^2 2m\hbar}=\frac{2\pi h}{\lambda^2 2m}=\frac{\hbar k^2}{2m}
-\end{equation}
-\begin{equation}
+    \frecuenciaangular &\by{\ref{eq:omega-planck}}\frac{\energia}{\planckbarsymbol}=\frac{p^2}{2m\planckbarsymbol}\by{\ref{eq:dualidad-de-broglie}}\frac{\plancksymbol^2}{\longonda^2 2m\planckbarsymbol}=\frac{2\pi h}{\lambda^2 2m}=\frac{\planckbarsymbol \longondaangular^2}{2m}\\
     \label{eq:frecuencia_debroglie}
-    \nu\by{\ref{pos:energia_planck}}\frac{E}{h}=\frac{p^2}{2mh}\by{\ref{pos:dualidad_de_broglie}}\frac{h^2}{2mh\lambda^2}=\frac{h}{2m\lambda^{2}}
-\end{equation}
+    \nu &\by{\ref{eq:energia-planck}}\frac{\energia}{\plancksymbol}=\frac{p^2}{2m\plancksymbol}\by{\ref{eq:dualidad-de-broglie}}\frac{\plancksymbol^2}{2m\plancksymbol\longonda^2}=\frac{\plancksymbol}{2m\longonda^{2}}
+\end{align}
 
 \subsection{Solución de onda momento-energía}\label{subsec:solucion-de-onda-momento-energia}
 Una consecuencia interesante de la dualidad onda-partícula de De Blogie, es poder expresar la solución de onda electro-magnética en función de su energía y su momento.
 
 \begin{equation}
     \label{eq:ecuacion_onda_momento_energia}
-    \psi(x,t)=Ae^{i(\omega t-kx)}\by{\ref{eq:omega_planck} y \ref{eq:k_debroglie}}Ae^{i(\frac{E}{\hbar} t-\frac{p}{\hbar}x)}=Ae^{i(\hbar^{-1}(E t-p x))}
+    \psi(x,t)=\amplitud e^{i(\longondaangular x - \frecuenciaangular t)}\by{\ref{eq:omega-planck} y~\ref{eq:k-debroglie}}\amplitud e^{i(\frac{p}{\planckbarsymbol}x - \frac{\energia}{\planckbarsymbol} t)}=\amplitud e^{i(\planckbarsymbol^{-1}(p x - \energia t))}
 \end{equation}
 
 \subsection{Desarrollo de la ecuación de Schröndiger}\label{subsec:desarrollo-de-la-ecuación-de-schrondiger}
 
-Partimos de la solución de onda momento-energía (\ref{eq:ecuacion_onda_momento_energia}), calculamos la derivada parcial respecto del tiempo y la segunda derivada parcial respecto del espacio dos veces y recordando que la energia es la suma de la energía cinética y energía potencial.
-\begin{equation*}
-    \frac{\partial\psi}{\partial x}=\frac{ip}{\hbar}\psi\text{ y }\frac{\partial^2\psi}{\partial x^2}=\frac{-p^2}{\hbar^2}\psi
-\end{equation*}
-
-\begin{equation*}
-    \frac{\partial\psi}{\partial t}=\frac{-iE}{\hbar}\psi=\frac{-ip^2}{2m\hbar}\psi+\frac{-iV}{\hbar}\psi=\frac{-i\hbar}{2m}\frac{p^2}{\hbar^2}\psi+\frac{-iV}{\hbar}\psi=\frac{i\hbar}{2m}\frac{\partial^2\psi}{\partial x^2}+\frac{-iV}{\hbar}\psi\so
-\end{equation*}
-
+Partimos de la solución de onda momento-energía~\eqref{eq:ecuacion_onda_momento_energia}, calculamos la derivada parcial respecto del tiempo y la segunda derivada parcial respecto del espacio dos veces y recordamos que la energia es la suma de la energía cinética y energía potencial.
 \begin{equation}
-    \label{eq:desarrollo-3ecuacion-schrodinger}
-    i\hbar\frac{\partial\psi}{\partial t}=\frac{-\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}+V\psi
+    \label{eq:pre-schrondiger}
+    \frac{\partial\psi}{\partial x}=\frac{ip}{\planckbarsymbol}\psi\so\frac{\partial^2\psi}{\partial x^2}=\frac{-p^2}{\planckbarsymbol^2}\psi
 \end{equation}
 
-\subsection{El operador momento}
-
-Si consideramos un fotón, cuya ecuación de onda asociada es $\psi(x,y,z,t)=\phi(x,y,z)e^{-i2\pi f/t}$ y volviendo a aplicar la ecuación de onda $\nabla^2\psi(\vec {r},t)=\frac {1}{c^2}\frac{\partial^2\psi}{\partial t^2}(\vec {r},t)$ junto con las igualdades encontradas obtenemos:
-
-\begin{equation*}
-    \frac{\partial^2 \psi}{\partial t^2}=-4\pi^2 f^2\psi\by{\ref{pos:energia_planck}}\frac{-4\pi^2 E^2}{h^2}\psi=-\frac{E^2}{\hbar^2}\psi
-\end{equation*}
-
-Ahora usamos la ecuación de onda para obtener que
 \begin{equation}
-    \label{eq:momento_cuadratico}
-    \nabla^2\psi=\frac {1}{c^2}\frac{\partial^2\psi}{\partial t^2}=-\frac {E^2}{\hbar^2 c^2}\psi\by{\ref{pos:energia_einstein}}-\frac {m^2c^4}{\hbar^2 c^2}\psi=-\frac {m^2 c^2}{\hbar^2}\psi=-\frac {p^2}{\hbar^2}\psi\so p^2\psi=-\hbar^2\nabla^2\psi
+    \label{eq:desarrollo-ecuacion-schrodinger}
+    \frac{\partial\psi}{\partial t}=\frac{i\energia}{\planckbarsymbol}\psi=\frac{ip^2}{2m\planckbarsymbol}\psi+\frac{iV}{\planckbarsymbol}\psi=\frac{i\planckbarsymbol}{2m}\frac{p^2}{\planckbarsymbol^2}\psi+\frac{iV}{\planckbarsymbol}\psi\by{\ref{eq:pre-schrondiger}}\frac{-i\planckbarsymbol}{2m}\frac{\partial^2\psi}{\partial x^2}+\frac{iV}{\planckbarsymbol}\psi
 \end{equation}
-
-Usando esta nueva igualdad en \ref{eq:desarrollo-3ecuacion-schrodinger} tenemos:
-\begin{equation}
-    \label{eq:ecuacion-schrondinger-energia}
-    i\hbar\frac{\partial\psi}{\partial t}=\frac{p^2}{2m}\psi+V\psi=(\frac{p^2}{2m}+V)\psi=E\psi
-\end{equation}
-
-Hemos obtenido dos expresiones muy importantes en la mecánica cuántica, si consideramos el momento y la energía como funcionales, tenemos:
-\begin{subequations}
-    \begin{equation}
-        \label{eq:energia_momento}
-        \^E=i\hbar\frac{\partial}{\partial t}
-    \end{equation}
-    \begin{equation}
-        \label{eq:operador_momento}
-        \^p^2=-\hbar^2\nabla^2\so\^p=-i\hbar\nabla
-    \end{equation}
-\end{subequations}

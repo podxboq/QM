@@ -114,7 +114,7 @@ En realidad, no es necesario indicar cual es la métrica, la norma o el producto
   \end{equation}
 \end{resultado}
 \begin{proof}
-  Usando el resultado \ref{norma_suma_general} para $a=1$ y $b=-1$ tenemos que $\abs{a}=1$, $\abs{b}=1$ y $a\overline{b}=-1$ y la igualdad queda
+  Usando el resultado~\eqref{norma_suma_general} para $a=1$ y $b=-1$ tenemos que $\abs{a}=1$, $\abs{b}=1$ y $a\overline{b}=-1$ y la igualdad queda
   \begin{equation*}
     \nor{f-g}^2=\nor{f}^2+\nor{g}^2+2\Re(-\braket{f}{g})
   \end{equation*}
@@ -143,7 +143,7 @@ En realidad, no es necesario indicar cual es la métrica, la norma o el producto
 \end{resultado}
 
 \begin{proof}
-  Usando el resultado \ref{norma_suma_general} y fijando $\alpha\in\C$, para $a=\frac{\nor{g}}{\nor{f}}e^{i\alpha}$ y $b=-\frac{\nor{f}}{\nor{g}}$ tenemos que $\abs{a}=\frac{\nor{g}}{\nor{f}}$, $\abs{b}=\frac{\nor{f}}{\nor{g}}$ y $a\overline{b}=-e^{i\alpha}$ y la igualdad queda
+  Usando el resultado~\eqref{norma_suma_general} y fijando $\alpha\in\C$, para $a=\frac{\nor{g}}{\nor{f}}e^{i\alpha}$ y $b=-\frac{\nor{f}}{\nor{g}}$ tenemos que $\abs{a}=\frac{\nor{g}}{\nor{f}}$, $\abs{b}=\frac{\nor{f}}{\nor{g}}$ y $a\overline{b}=-e^{i\alpha}$ y la igualdad queda
   \begin{multline*}
     \nor{\frac{\nor{g}}{\nor{f}}e^{i\alpha}f-\frac{\nor{f}}{\nor{g}}g}^2=\frac{\nor{g}}{\nor{f}}\nor{f}^2+\frac{\nor{f}}{\nor{g}}\nor{g}^2+2\Re(-e^{i\alpha}\braket{f}{g})=\\
     =\nor{g}\nor{f}+\nor{f}\nor{g}-2\Re(e^{i\alpha}\braket{f}{g})=2(\nor{f}\nor{g}-\Re(e^{i\alpha}\braket{f}{g}))
@@ -151,7 +151,7 @@ En realidad, no es necesario indicar cual es la métrica, la norma o el producto
   Como la norma de cualquier vector es mayor o igual que cero, tenemos que
   $0\leq\nor{f}\nor{g}-\Re(e^{i\alpha}\braket{f}{g})\Rightarrow \Re(e^{i\alpha}\braket{f}{g})\leq\nor{f}\nor{g}$.
 
-  Como la desigualdad anterior es válida para todo $\alpha\in\C$ y usando el resultado \ref{exponencial_producto_interno_real} tendremos que $ \abs{\braket{f}{g}}\leq\nor{f}\nor{g}$.
+  Como la desigualdad anterior es válida para todo $\alpha\in\C$ y usando el resultado~\eqref{exponencial_producto_interno_real} tendremos que $ \abs{\braket{f}{g}}\leq\nor{f}\nor{g}$.
 \end{proof}
 
 \begin{resultado}
@@ -167,7 +167,7 @@ En realidad, no es necesario indicar cual es la métrica, la norma o el producto
   \begin{equation*}
     \abs{\braket{f}{g}}=\abs{\braket{\alpha g}{g}}=\abs{\alpha}\nor{g}^2=\abs{\alpha}\nor{g}\nor{g}=\nor{f}\nor{g}
   \end{equation*}
-  Para el caso contrario, como se comprobó en el resultado \ref{norma_producto_escalar_producto_norma}, $\braket{f}{g}$ es el valor máximo de $\Re(e^{i\alpha}\braket{f}{g})$. Como dichos valores forman un conjunto cerrado, el máximo se alcanza, es decir, existe $\beta\in\C$ tal que $\Re(e^{i\beta}\braket{f}{g})=\abs{\braket{f}{g}}$ y utilizando el resultado \ref{norma_suma_general} para $a=\frac{\nor{g}}{\nor{f}}e^{i\beta}$ y $b=-\frac{\nor{f}}{\nor{g}}$ tenemos que:
+  Para el caso contrario, como se comprobó en el resultado~\eqref{norma_producto_escalar_producto_norma}, $\braket{f}{g}$ es el valor máximo de $\Re(e^{i\alpha}\braket{f}{g})$. Como dichos valores forman un conjunto cerrado, el máximo se alcanza, es decir, existe $\beta\in\C$ tal que $\Re(e^{i\beta}\braket{f}{g})=\abs{\braket{f}{g}}$ y utilizando el resultado~\eqref{norma_suma_general} para $a=\frac{\nor{g}}{\nor{f}}e^{i\beta}$ y $b=-\frac{\nor{f}}{\nor{g}}$ tenemos que:
   \begin{multline*}
     \nor{\frac{\nor{g}}{\nor{f}}e^{i\beta}f-\frac{\nor{f}}{\nor{g}}g}=2(\nor{f}\nor{g}-\Re(e^{i\beta}\braket{f}{g}))=2(\nor{f}\nor{g}-\braket{f}{g})=\\
     =2(\nor{f}\nor{g}-\nor{f}\nor{g})=0

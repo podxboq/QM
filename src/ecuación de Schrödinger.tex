@@ -23,13 +23,13 @@ En cuanto a la conjugada tenemos que $\Psi^*_1$ es el opuesto a la solución de 
 \end{equation}
 
 \subsubsection{Solución temporal}
-Si la función de onda sólo depende del tiempo, la ecuación~\ref{eq:ecuacion_schrodinger} queda como $\Psi^\prime(t) = -i/\hbar V(t)\Psi(t)$ cuya solución es $\Psi(t)=e^{-it(W(t)+W)/\hbar}$ donde $W^\prime (t)=V(t)$ y $W\in\C$.
+Si la función de onda sólo depende del tiempo, la ecuación~\eqref{eq:ecuacion_schrodinger} queda como $\Psi^\prime(t) = -i/\hbar V(t)\Psi(t)$ cuya solución es $\Psi(t)=e^{-it(W(t)+W)/\hbar}$ donde $W^\prime (t)=V(t)$ y $W\in\C$.
 
 \subsubsection{Solución espacial}
-Si la función de onda sólo depende del espacio, la ecuación~\ref{eq:ecuacion_schrodinger} queda como $0=-i\hbar/(2m)\nabla\Psi(\vec{r})+V(\vec{r})\Psi(\vec{r})$, es decir $\nabla\Psi(\vec{r})=-i2m/\hbar V(\vec{r})\Psi(\vec{r})$.
+Si la función de onda sólo depende del espacio, la ecuación~\eqref{eq:ecuacion_schrodinger} queda como $0=-i\hbar/(2m)\nabla\Psi(\vec{r})+V(\vec{r})\Psi(\vec{r})$, es decir $\nabla\Psi(\vec{r})=-i2m/\hbar V(\vec{r})\Psi(\vec{r})$.
 
 \subsection{Estados estacionarios}\label{subsec:estados-estacionarios}
-Vamos a estudiar un caso muy especial, donde el potencial no depende del tiempo y donde la solución es el producto de una solución espacial y otra temporal, simplificaremos las ecuaciones tomando una sola variable, es decir $\Psi(x,t)=f(x)g(t)$, la ecuación~\ref{eq:ecuacion_schrodinger} queda como $f(x)g'(t)=i\hbar/(2m)f''(x)g(t)-i/\hbar V(x)f(x)g(t)$.
+Vamos a estudiar un caso muy especial, donde el potencial no depende del tiempo y donde la solución es el producto de una solución espacial y otra temporal, simplificaremos las ecuaciones tomando una sola variable, es decir $\Psi(x,t)=f(x)g(t)$, la ecuación~\eqref{eq:ecuacion_schrodinger} queda como $f(x)g'(t)=i\hbar/(2m)f''(x)g(t)-i/\hbar V(x)f(x)g(t)$.
 
 
 \textbf{Caso 1.}
@@ -58,7 +58,7 @@ Teniendo que una expresión temporal es igual a una expresión espacial para tod
     \begin{equation*}
         \nor{\Psi(x,t)}^2=\Psi^*(x,t)\Psi(x,t)=f^*(x)g^*(t)f(x)g(t)=\nor{f(x)}^2\nor{g(t)}^2
     \end{equation*}
-    Usando la ecuación~\ref{eq:ecuacion_probabilidad_onda} tenemos que
+    Usando la ecuación~\eqref{eq:ecuacion_probabilidad_onda} tenemos que
     \begin{equation*}
         1=\int_{-\infty}^{+\infty}\nor{\Psi(x,t)}^2 dx=\nor{g(t)}^2\int_{-\infty}^{+\infty}\nor{f(x)}^2 dx
     \end{equation*}
@@ -93,7 +93,7 @@ Llamamos \define{operador Hamiltoniano} al operador definido por
     \label{eq:operador_hamiltoniano}
     \widehat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)
 \end{equation}
-Usando el operador Hamiltoniano en la ecuación~\ref{eq:ecuacion_schrodinger_tempoespacial} podemos expresarlo así
+Usando el operador Hamiltoniano en la ecuación~\eqref{eq:ecuacion_schrodinger_tempoespacial} podemos expresarlo así
 \begin{equation*}
     \widehat{H}f(x)=-i\hbar Df(x)
 \end{equation*}

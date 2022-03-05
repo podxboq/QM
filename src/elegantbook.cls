@@ -242,8 +242,8 @@
 \RequirePackage{appendix}
 
 \setlength\parindent{2em}
-\newcommand\figref[1]{\textbf{Figura}~\ref{#1}}
-\newcommand\tabref[1]{\textbf{Tabla}~\ref{#1}}
+\newcommand\figref[1]{\textbf{Figura}~\eqref{#1}}
+\newcommand\tabref[1]{\textbf{Tabla}~\eqref{#1}}
 \renewcommand{\spanishchaptername}{Capítulo \thechapter}
 \newcommand{\authorname}{\textbf{Autor: }}
 \newcommand{\institutename}{\textbf{Instituto: }}
