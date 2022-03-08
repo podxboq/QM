@@ -1,35 +1,30 @@
-\chapter{Ecuación de Schrödinger}
+\chapter{Ecuación de Schrödinger}\label{ch:ecuación-de-schrödinger}
 
-\section{Función de onda}
-A la onda asociada a una partícula se le llama \define{función de onda}{funcion_de_onda} y se le suele denotar por $\Psi$.
-
+\section{Función de onda}\label{sec:función-de-onda}
+A la onda asociada a una partícula se le llama \define{función de onda}{funcion_de_onda} y se le suele denotar por $\fuconda$.
 La \define{ecuación de Schrödinger}{ecuacion_de_schrodinger}, describe la evolución temporal de la función de onda de una partícula masiva y no relativista.
 \begin{postulate}[Ecuación de Schrödinger]
     \begin{equation}
-    \label{eq:ecuacion_schrodinger}
-    \frac{\partial\Psi(\vec{r},t)}{\partial t}=\frac{i\hbar}{2m}\nabla\Psi(\vec{r},t)-\frac{i}{\hbar}V(\vec{r},t)\Psi(\vec{r},t)
+    \label{eq:ecuacion-schrodinger-no-relativista}
+    \frac{\partial\fuconda(\vec{r},t)}{\partial t}=\frac{i\planckbarsymbol}{2m}\nabla^2\fuconda(\vec{r},t)-\frac{i}{\planckbarsymbol}V(\vec{r},t)\fuconda(\vec{r},t)
     \end{equation}
 \end{postulate}
 
 \section{Propiedades de las soluciones a la ecuación de Schrödinger}\label{sec:propiedades-de-las-soluciones-a-la-ecuación-de-schrödinger}
 
 \subsection{Linealidad}\label{subsec:linealidad}
-Es fácil comprobar que si $\Psi_1$ y $\Psi_2$ son funciones de onda para un potencial $V(x,t)$ y $a\in\C$, entonces $\Psi_1+\Psi_2$ y $a\Psi$ son ambos funciones de onda para el mismo potencial $V(x,t)$.
-En cuanto a la conjugada tenemos que $\Psi^*_1$ es el opuesto a la solución de la ecuación de onda del conjudado del potencial, es decir
+Es fácil comprobar que si $\fuconda_1$ y $\fuconda_2$ son funciones de onda para un potencial $V(\vec{r},t)$ y $a\in\C$, entonces $\fuconda_1+\fuconda_2$ y $a\fuconda$ son ambos funciones de onda para el mismo potencial $V(\vec{r},t)$.
+
+\subsection{Conjugado}\label{subsec:conjundado}
+En cuanto a la conjugada tenemos que $\fuconda^*_1$ es el opuesto a la solución de la ecuación de onda del conjudado del potencial, es decir
 
 \begin{equation}
     \label{eq:ecuacion_schrodinger_conjugada}
-    \frac{\partial\Psi^*(\vec{r},t)}{\partial t}=\frac{-i\hbar}{2m}\nabla\Psi^*(\vec{r},t)+\frac{i}{\hbar}V^*(\vec{r},t)\Psi^*(\vec{r},t)
+    \frac{\partial\fuconda^*(\vec{r},t)}{\partial t}=\frac{-i\planckbarsymbol}{2m}\nabla\fuconda^*(\vec{r},t)+\frac{i}{\planckbarsymbol}V^*(\vec{r},t)\fuconda^*(\vec{r},t)
 \end{equation}
 
-\subsubsection{Solución temporal}
-Si la función de onda sólo depende del tiempo, la ecuación~\eqref{eq:ecuacion_schrodinger} queda como $\Psi^\prime(t) = -i/\hbar V(t)\Psi(t)$ cuya solución es $\Psi(t)=e^{-it(W(t)+W)/\hbar}$ donde $W^\prime (t)=V(t)$ y $W\in\C$.
-
-\subsubsection{Solución espacial}
-Si la función de onda sólo depende del espacio, la ecuación~\eqref{eq:ecuacion_schrodinger} queda como $0=-i\hbar/(2m)\nabla\Psi(\vec{r})+V(\vec{r})\Psi(\vec{r})$, es decir $\nabla\Psi(\vec{r})=-i2m/\hbar V(\vec{r})\Psi(\vec{r})$.
-
-\subsection{Estados estacionarios}\label{subsec:estados-estacionarios}
-Vamos a estudiar un caso muy especial, donde el potencial no depende del tiempo y donde la solución es el producto de una solución espacial y otra temporal, simplificaremos las ecuaciones tomando una sola variable, es decir $\Psi(x,t)=f(x)g(t)$, la ecuación~\eqref{eq:ecuacion_schrodinger} queda como $f(x)g'(t)=i\hbar/(2m)f''(x)g(t)-i/\hbar V(x)f(x)g(t)$.
+\subsection{Soluciones estacionarias}\label{subsec:soluciones-estacionarias}
+Vamos a estudiar un caso muy especial, donde el potencial no depende del tiempo y donde la solución es el producto de una solución espacial y otra temporal, simplificaremos las ecuaciones tomando una sola variable, es decir $\fuconda(x,t)=f(x)g(t)$, la ecuación~\eqref{eq:ecuacion-schrodinger-no-relativista} queda como $f(x)\dot{g}(t)=i\planckbarsymbol/(2m)\ddot{f}(x)g(t)-i/\planckbarsymbol V(x)f(x)g(t)$.
 
 
 \textbf{Caso 1.}
@@ -42,44 +37,44 @@ Para algún punto del espacio $x_0$ la función $f$ se anula, es decir, $0=f''(x
 
 \textbf{Caso 3.}
 
-Nunca se anulan las funciones, podemos entonces dividir en todo momento la ecuación anterior por $f(x)g(t)$, quedando la ecuación $g'(t)/g(t)=i\hbar/(2m)f^{\prime\prime}(x)/f(x)-i/\hbar V(x)$.
+Nunca se anulan las funciones, podemos entonces dividir en todo momento la ecuación anterior por $f(x)g(t)$, quedando la ecuación $g'(t)/g(t)=i\planckbarsymbol/(2m)f^{\prime\prime}(x)/f(x)-i/\planckbarsymbol V(x)$.
 Teniendo que una expresión temporal es igual a una expresión espacial para todo tiempo y todo espacio, esto es posible si ambas expresiones son constantes en tiempo y espacio, y deben cumplirse a la vez que para algún $C\in\C$
 \begin{gather*}
     \frac{g'(t)}{g(t)}=C\Rightarrow g(t)=e^{Ct}
     \\
-    \frac{i\hbar}{2m}\frac{f''(x)}{f(x)}-\frac{i}{\hbar}V(x)=C
+    \frac{i\planckbarsymbol}{2m}\frac{f''(x)}{f(x)}-\frac{i}{\planckbarsymbol}V(x)=C
 \end{gather*}
 
 \begin{resultado}
     Si el potencial $V$ es independiente del tiempo y $C\in\C$ cumple que $\frac{g'(t)}{g(t)}=C$, entonces $C$ es imaginario.
 \end{resultado}
 \begin{proof}
-    Si calculamos la norma al cuadrado de $\Psi$ tenemos que
+    Si calculamos la norma al cuadrado de $\fuconda$ tenemos que
     \begin{equation*}
-        \nor{\Psi(x,t)}^2=\Psi^*(x,t)\Psi(x,t)=f^*(x)g^*(t)f(x)g(t)=\nor{f(x)}^2\nor{g(t)}^2
+        \nor{\fuconda(x,t)}^2=\fuconda^*(x,t)\fuconda(x,t)=f^*(x)g^*(t)f(x)g(t)=\nor{f(x)}^2\nor{g(t)}^2
     \end{equation*}
     Usando la ecuación~\eqref{eq:ecuacion_probabilidad_onda} tenemos que
     \begin{equation*}
-        1=\int_{-\infty}^{+\infty}\nor{\Psi(x,t)}^2 dx=\nor{g(t)}^2\int_{-\infty}^{+\infty}\nor{f(x)}^2 dx
+        1=\int_{-\infty}^{+\infty}\nor{\fuconda(x,t)}^2 dx=\nor{g(t)}^2\int_{-\infty}^{+\infty}\nor{f(x)}^2 dx
     \end{equation*}
     Para que la ecuación anterior sea cierta, la norma de $g$ debe ser una constante, es decir, $g^*(t)g(t)=e^{C^*t}e^{Ct}=e^{(C^*+C)t}$ debe ser constante en el tiempo, por tanto se tiene como única opción que $C^*+C=0$, es decir, que $C$ sea un número imaginario.
 \end{proof}
 
 \begin{resultado}
-    Si el potencial $V$ es independiente del tiempo y $\Psi(x,t)=f(x)g(t)$ se cumple que $\nor{\Psi(x,t)}^2=\nor{f(x)}^2$.
+    Si el potencial $V$ es independiente del tiempo y $\fuconda(x,t)=f(x)g(t)$ se cumple que $\nor{\fuconda(x,t)}^2=\nor{f(x)}^2$.
 \end{resultado}
 \begin{proof}
     Como hemos visto en el resultado anterior, $\nor{g(t)}^2=1$, y por tanto
     \begin{equation}
         \label{eq:probabilidad_atemporal}
-        \nor{\Psi(x,t)}^2=\nor{f(x)}^2\nor{g(t)}^2=\nor{f(x)}^2
+        \nor{\fuconda(x,t)}^2=\nor{f(x)}^2\nor{g(t)}^2=\nor{f(x)}^2
     \end{equation}
 \end{proof}
 Así que $C=iD$ con $D\in\R$, las soluciones al estado estacionario queda como
 \begin{gather*}
     \frac{g'(t)}{g(t)}=iD
     \\
-    \frac{\hbar}{2m}\frac{f''(x)}{f(x)}-\frac{1}{\hbar}V(x)=D
+    \frac{\planckbarsymbol}{2m}\frac{f''(x)}{f(x)}-\frac{1}{\planckbarsymbol}V(x)=D
 \end{gather*}
 
 \subsubsection{Hamiltoniano}
@@ -91,33 +86,33 @@ Si consideramos el conjunto de la energía cinética más la energía potencial,
 Llamamos \define{operador Hamiltoniano} al operador definido por
 \begin{equation}
     \label{eq:operador_hamiltoniano}
-    \widehat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)
+    \widehat{H}=-\frac{\planckbarsymbol^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)
 \end{equation}
 Usando el operador Hamiltoniano en la ecuación~\eqref{eq:ecuacion_schrodinger_tempoespacial} podemos expresarlo así
 \begin{equation*}
-    \widehat{H}f(x)=-i\hbar Df(x)
+    \widehat{H}f(x)=-i\planckbarsymbol Df(x)
 \end{equation*}
-Para simplificar la expresión llamamos $E=-\hbar D$ y por tanto las soluciones al estado estacionario queda como
+Para simplificar la expresión llamamos $E=-\planckbarsymbol D$ y por tanto las soluciones al estado estacionario queda como
 \begin{gather*}
-    \frac{g'(t)}{g(t)}=-iE/\hbar
+    \frac{g'(t)}{g(t)}=-iE/\planckbarsymbol
     \\
-    \frac{\hbar}{2m}\frac{f''(x)}{f(x)}-\frac{1}{\hbar}V(x)=-E/\hbar\Rightarrow \frac{\hbar^2}{2m}\frac{f''(x)}{f(x)}-V(x)=-E
+    \frac{\planckbarsymbol}{2m}\frac{f''(x)}{f(x)}-\frac{1}{\planckbarsymbol}V(x)=-E/\planckbarsymbol\Rightarrow \frac{\planckbarsymbol^2}{2m}\frac{f''(x)}{f(x)}-V(x)=-E
 \end{gather*}
 
 \begin{definicion}
     Llamamos \define{Ecuación de Schrödinger independiente del tiempo} a la ecuación solución de la parte espacial del estado estacionario
     \begin{equation}
         \label{eq:ecuacion_schrodinger_tempoespacial}
-        -\frac{\hbar^2}{2m}f''(x)+V(x)f(x)= Ef(x)
+        -\frac{\planckbarsymbol^2}{2m}f''(x)+V(x)f(x)= Ef(x)
     \end{equation}
 \end{definicion}
 
 Resolviendo la ecuación diferencial temporal y usando el operador de Halmiton podemos dejar las soluciones de estados estacionarios como
 \begin{equation}
     \label{eq:solucion_estado_estacionario}
-    \Psi(x,t)=f(x)g(t)\text{ donde }
+    \fuconda(x,t)=f(x)g(t)\text{ donde }
     \begin{cases}
-        g(t)=e^{-iEt/\hbar}\\
+        g(t)=e^{-iEt/\planckbarsymbol}\\
         \widehat{H}f(x)=Ef(x)\\
         E\in\R
     \end{cases}
@@ -129,13 +124,13 @@ Resolviendo la ecuación diferencial temporal y usando el operador de Halmiton p
 La solución general del estado estacionario se puede expresar como
 \begin{equation}
     \label{eq:solucion_general_estado_estacionario}
-    \Psi(x,t)=\sum_{k\in\N}c_k f_k(x)e^{-iE_k t/\hbar}
+    \fuconda(x,t)=\sum_{k\in\N}c_k f_k(x)e^{-iE_k t/\planckbarsymbol}
 \end{equation}
 Donde $\forall k\in\N$ $E_k\in\R$ y $\widehat{H}f_k(x)=E_k f_k(x)$
 
 \subsubsection{Desviación de H}
-$\avg{H} = \int_{-\infty}^{+\infty}\Psi^* \widehat{H}\Psi dx = \int_{-\infty}^{+\infty}\Psi^* E\Psi dx=E\int_{-\infty}^{+\infty}\Psi^* \Psi dx = E$
+$\avg{H} = \int_{-\infty}^{+\infty}\fuconda^* \widehat{H}\fuconda dx = \int_{-\infty}^{+\infty}\fuconda^* E\fuconda dx=E\int_{-\infty}^{+\infty}\fuconda^* \fuconda dx = E$
 
-$\avg{H^2} = \int_{-\infty}^{+\infty}\Psi^* \widehat{H}^2\Psi dx = \int_{-\infty}^{+\infty}\Psi^* E^2\Psi dx=E^2\int_{-\infty}^{+\infty}\Psi^* \Psi dx = E^2$
+$\avg{H^2} = \int_{-\infty}^{+\infty}\fuconda^* \widehat{H}^2\fuconda dx = \int_{-\infty}^{+\infty}\fuconda^* E^2\fuconda dx=E^2\int_{-\infty}^{+\infty}\fuconda^* \fuconda dx = E^2$
 
 Por tanto $\sigma_H=\avg{H^2}-\avg{H}^2=E^2-E^2=0$
