@@ -1,0 +1,16 @@
+\chapter{Probabilidad cuántica}\label{ch:probabilidad-cuántica}
+
+Una vez vista las propiedades de la función de onda de una partícula, y estudiado algunos casos, volvemos a preguntarnos sobre la partícula, ¿que información podemos obtener si conocemos su función de onda?.
+La relación entre la partícula y su función de onda, es probabilística, y exactamente tenemos que $\abs{\fuconda(\vec{r}, t)}^2 d^3\vec{r}$ representa la probabilidad de encontrar a la partícula en el mommento $t$ en el punto $\vec{r}$.
+
+Como la partícula debe estar en algún punto del espacio, se tiene que cumplir
+\begin{postulate}[Condición probabilística de la ecuación de ondas]
+    \begin{equation}
+        \label{eq:condicion_probabilistica_fuconda}
+        \int_{\R^3}\abs{\fuconda(\vec{r}, t)}^2 d^3\vec{r}=1
+    \end{equation}
+\end{postulate}
+
+\subsection{Espacio de Hilbert}\label{subsec:espacio-de-hilbert}
+
+Como vimos en~\ref{sec:propiedades-de-las-soluciones-a-la-ecuación-de-schrödinger}, las combinaciones lineales de soluciones de la ecuación de Schrödinger, son también soluciones, por tanto el conjunto de las soluciones a la ecuación de Schrödinger es un subespacio de las funciones de cuadrado integable $\mathscr{L}^2$ que es un espacio de Hilbert.

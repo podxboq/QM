@@ -45,9 +45,9 @@ Teniendo que una expresión temporal es igual a una expresión espacial para tod
     \frac{i\planckbarsymbol}{2m}\frac{f''(x)}{f(x)}-\frac{i}{\planckbarsymbol}V(x)=C
 \end{gather*}
 
-\begin{resultado}
+\begin{proposition}
     Si el potencial $V$ es independiente del tiempo y $C\in\C$ cumple que $\frac{g'(t)}{g(t)}=C$, entonces $C$ es imaginario.
-\end{resultado}
+\end{proposition}
 \begin{proof}
     Si calculamos la norma al cuadrado de $\fuconda$ tenemos que
     \begin{equation*}
@@ -60,9 +60,9 @@ Teniendo que una expresión temporal es igual a una expresión espacial para tod
     Para que la ecuación anterior sea cierta, la norma de $g$ debe ser una constante, es decir, $g^*(t)g(t)=e^{C^*t}e^{Ct}=e^{(C^*+C)t}$ debe ser constante en el tiempo, por tanto se tiene como única opción que $C^*+C=0$, es decir, que $C$ sea un número imaginario.
 \end{proof}
 
-\begin{resultado}
+\begin{proposition}
     Si el potencial $V$ es independiente del tiempo y $\fuconda(x,t)=f(x)g(t)$ se cumple que $\nor{\fuconda(x,t)}^2=\nor{f(x)}^2$.
-\end{resultado}
+\end{proposition}
 \begin{proof}
     Como hemos visto en el resultado anterior, $\nor{g(t)}^2=1$, y por tanto
     \begin{equation}
@@ -99,13 +99,13 @@ Para simplificar la expresión llamamos $E=-\planckbarsymbol D$ y por tanto las 
     \frac{\planckbarsymbol}{2m}\frac{f''(x)}{f(x)}-\frac{1}{\planckbarsymbol}V(x)=-E/\planckbarsymbol\Rightarrow \frac{\planckbarsymbol^2}{2m}\frac{f''(x)}{f(x)}-V(x)=-E
 \end{gather*}
 
-\begin{definicion}
+\begin{definition}
     Llamamos \define{Ecuación de Schrödinger independiente del tiempo} a la ecuación solución de la parte espacial del estado estacionario
     \begin{equation}
         \label{eq:ecuacion_schrodinger_tempoespacial}
         -\frac{\planckbarsymbol^2}{2m}f''(x)+V(x)f(x)= Ef(x)
     \end{equation}
-\end{definicion}
+\end{definition}
 
 Resolviendo la ecuación diferencial temporal y usando el operador de Halmiton podemos dejar las soluciones de estados estacionarios como
 \begin{equation}
